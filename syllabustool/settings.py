@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Applications for SyllabusTool
+    'core.apps.CoreConfig',  # Mange the site and connections between any apps we create
 ]
 
 MIDDLEWARE = [
@@ -81,8 +83,8 @@ DATABASES = {
 }
 
 # Custom User
-#
-
+# https://docs.djangoproject.com/en/3.1/topics/auth/customizing/#substituting-a-custom-user-model
+AUTH_USER_MODEL = 'core.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -108,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
