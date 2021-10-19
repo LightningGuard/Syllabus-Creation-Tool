@@ -1,0 +1,47 @@
+{% extends "base_generic.html" %}
+
+{% block navbar %}<!-- No navbar on landing page -->{% endblock %}
+
+<!-- TODO: Redo ALL of this landing page-->
+{% block content %}
+<div class="container">
+    <div class="row h-100">
+        <div class="col-md-6">
+            <div class="container" id="landingLeftContainer">
+                <div class="row">
+                    <div class="col-md-12" id="landing_logo">
+                        {% load static %}
+                        <img src="{% static 'media/logo_temp.png' %}" alt="Syllabus Tool Logo">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="landing_description">A Tool for displaying and tracking Syllabi.</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="container" id="landingRightContainer">
+                <!-- TODO: Login Form -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="text" id="username_entry" placeholder="Username"></input>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="text" placeholder="Password"></input>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+
+                    </div>
+                    <div class="col-md-4">
+                        <button onlick="{% url 'student' %}" id="LoginButton">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- row -->
+</div> <!-- container -->
+{% endblock %}
