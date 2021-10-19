@@ -1,0 +1,28 @@
+/*  UMBC Colors: https://styleguide.umbc.edu/umbc-colors/ */
+:root {
+    --UMBC_black: #000000; /* var(--UMBC_black) */
+    --UMBC_gold: #fdb515;
+    --UMBC_darkgrey: #636466
+}
+
+body {
+    background-color: var(--UMBC_darkgrey);
+    color: var(--UMBC_gold);
+}
+
+
+#landingLeftContainer {
+    height: 100%;
+    background-color: grey;
+}
+
+#landingRightContainer {
+    height: 100%;
+    background-color: red;
+}
+
+
+.navbar {
+    background-color: var(--UMBC_black);
+    color: var(--UMBC_gold);
+}

@@ -3,4 +3,12 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Welcome to Syllabus Tool")
+    return render(request, 'index.html')
+
+
+def student(request):
+    return render(request, 'student.html')
+
+
+def instructor(request):
+    return render(request, 'instructor.html')

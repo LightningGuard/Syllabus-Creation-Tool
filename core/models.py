@@ -17,7 +17,7 @@ class Section(models.Model):
 
 
 class Course(models.Model):
-    course_name = models.CharField(128)
+    course_name = models.CharField(max_length=128)
     course_id = models.CharField(max_length=32, unique=True)
     section_id = models.ForeignKey(Section, on_delete=models.CASCADE)
 
