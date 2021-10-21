@@ -5,3 +5,4 @@ Django~=3.2.8
 sqlparse~=0.4.2
 asgiref~=3.4.1
 setuptools~=58.0.4
+python-decouple~=3.5
