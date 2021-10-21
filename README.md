@@ -6,8 +6,10 @@ Syllabus creation tool is a new tool for professors to engage their students to 
 Running the project:  
   In a terminal:  
     1) pull the dev branch (import project to pycharm, switch branches)  
+    1a) Download the .env from Discord and save it to the project root directory (where you git cloned)
     2) create a venv, switch to it (happens automagically in pycharm)  
     4) python -m pip install -r requirements.txt  
+    
     5) python manage.py migrate  
     6) python manage.py runserver  
   
