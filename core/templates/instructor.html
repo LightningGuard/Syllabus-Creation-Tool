@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Instructor - Syllabus Tool</title>{% endblock %}
+
+{% block content %}
+    <h1>Instructor Page</h1>
+    <ul>
+        <li>Syllabus 1</li>
+        <li>Syllabus 2</li>
+        <li>Syllabus 3</li>
+    </ul>
+
+
+    <!-- This creates a button on the instructor page so that they can click which direct them to createSyllabus
+         to create your own syllabus
+    -->
+    <form action="{% url 'createSyllabus' %}">
+        {% csrf_token %}
+        <button type="submit" >Make a Syllabus</button>
+    </form>
+
+{% endblock %}

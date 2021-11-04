@@ -1,0 +1,45 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Email Development - Syllabus Tool</title>{% endblock %}
+
+{% block content %}
+
+
+<h1>Contact us!</h1>
+<p>If you have any questions, comments, or concerns feel free to use this contact page as a way to reach us :)</p>
+
+<div class=" formBox">
+    <form action = "" method="POST" class = email-form>
+            {% csrf_token %}
+            <div class="email-form">
+                <div class ="tag"> Your Name</div>
+                <input type = "text" name = "name">
+                <!--this checks if the user has inputted a name to be sent-->
+                {% if noNameEntry %} <p style="color:red">This field is required!</p>{% endif %}
+            </div>
+
+            <div class="email-form">
+                <div class ="tag"> Your Email </div>
+                <input type = "text" name = "email">
+                <!--this is to check if the email was already entered and if it was invalid then well
+                prompt them to enter a valid email address-->
+                {% if badEmail %} <p style="color:red">Invalid email please try again</p>{% endif %}
+            </div>
+
+            <div class="email-form">
+                <div class="tag">What you would like to tell us!</div>
+                <textarea name="message" cols="40" rows="8"></textarea>
+                {% if noMessageEntry %} <p style="color:red">This field is required!</p>{% endif %}
+            </div>
+
+            <div class="email-form">
+                <input type="Submit" class="submit-button" value="Submit">
+                <!--this checks if the user has inputted a message to be sent-->
+                {% if noMessageEntry or badEmail or noNameEntry %} <p style="color:red">Please fill out all fields and a proper email before submitting!</p>{% endif %}
+                {% if messageSent %} <p>Your message has been sent we will reach you shortly!<br> If you like you may re-use this form or return <a href="/">Home</a></p>{% endif %}
+            </div>
+    </form>
+</div>
+
+
+{% endblock %}
