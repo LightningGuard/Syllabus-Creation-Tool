@@ -1,0 +1,186 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Syllabus Viewer - Syllabus Tool</title>{% endblock %}
+
+{% block content %}
+<html>
+<head>
+</head>
+<body>
+
+<!-- This will shift the text away from the left-hand side to be towards the center, and
+    it all make margin for text so that it will not go across the whole screen
+-->
+<style>
+
+    .indent_syllabus {
+        margin-left: 400px;
+    }
+
+    .indent_syllabus1 {
+        margin-left: 600px;
+        word-wrap: break-word;
+        width: 750px;
+    }
+
+</style>
+
+<div>
+    <!-- Creates the Title
+    -->
+    <h3>
+        <center>{{course_name}} - {{course_id}}</center>
+    </h3>
+</div>
+
+<div>
+    <hr>
+</div>
+
+<!-- This will make an instructor comment with the prof data they entered in on the other page
+-->
+<div class="indent_syllabus">
+    Instructor: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;{{prof_name}}, &emsp; Email:
+    {{prof_email}}</br>
+</div>
+
+<!-- This is used to space out the text and will use this often
+-->
+</br>
+
+<!-- This will make a schedule comment with class data they entered in on the other page
+-->
+<div class="indent_syllabus">
+    Lecture Schedule: &emsp;&emsp;&emsp;&emsp;&ensp;{{meeting_days}}, {{meeting_times}}
+</div>
+
+</br>
+
+
+<!-- This will make a  comment with ta data they entered in on the other page
+-->
+<div class="indent_syllabus">
+    Teaching Assistant:
+</div>
+
+<!-- read each index in the list and write each thing down with a dot for ordering/appearance
+-->
+<div class="indent_syllabus1">
+
+    {% for name in ta_info %}
+    <li>{{ name }}
+        {% endfor %}
+
+</div>
+
+
+</br>
+
+<!-- will just make a comment with name listed and record the data the user entered on the other page
+-->
+<div class="indent_syllabus">
+
+    Office Hours Info: &ensp;&emsp;&emsp;&emsp;&ensp;&ensp;{{instructor_office}}, &emsp; {{instructor_days}},
+    &emsp; {{instructor_hours}}
+
+</div>
+
+</br>
+
+<!-- will just make a comment with name listed for organization
+-->
+<div class="indent_syllabus">
+    Course Pre-Req :
+</div>
+
+<!-- This is used so i can wrap the text. So info is not unorganized
+-->
+<div class="indent_syllabus1">
+    {{course_pre_req}}
+</div>
+
+</br>
+
+<!-- will just make a comment with name listed for organization
+-->
+<div class="indent_syllabus">
+    Need Materials :
+</div>
+
+<!-- This is used so i can wrap the text. So info is not unorganized
+-->
+<div class="indent_syllabus1">
+    {{course_requirements}}
+</div>
+
+</br>
+
+<!-- will just make a comment with name listed for organization
+-->
+<div class="indent_syllabus">
+    Course Description :
+</div>
+
+<!-- This is used so i can wrap the text. So info is not unorganized
+-->
+<div class="indent_syllabus1">
+    {{course_description}}
+</div>
+
+</br>
+
+<!-- will just make a comment with name listed for organization
+-->
+<div class="indent_syllabus">
+    Course Topics:
+</div>
+
+<!-- read each index in the list and write each thing down with a dot for ordering/appearance
+-->
+<div class="indent_syllabus1">
+
+    {% for name2 in course_topics %}
+    <li>{{ name2 }}
+        {% endfor %}
+
+</div>
+
+</br>
+
+<!-- will just make a comment with name listed for organization
+-->
+<div class="indent_syllabus">
+    Grading Distribution :
+</div>
+
+<!-- read each index in the list and write each thing down with a dot for ordering/appearance
+-->
+<div class="indent_syllabus1">
+    {% for name3 in grading %}
+    <li>{{ name3 }}
+        {% endfor %}
+</div>
+
+</br>
+
+<!-- will just make a comment with name listed for organization
+-->
+<div class="indent_syllabus">
+    Assignments/Due dates :
+</div>
+
+<!-- read each index in the list and write each thing down with a dot for ordering/appearance
+-->
+<div class="indent_syllabus1">
+    {% for name4 in course_work %}
+    <li>{{ name4 }}
+        {% endfor %}
+</div>
+
+</br>
+</br>
+</br>
+
+</body>
+</html>
+{% endblock %}
