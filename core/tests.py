@@ -26,6 +26,11 @@ class TestStudentPage(TestCase):
         assert (response.templates[0].name == 'student.html')
         assert (response.templates[1].name == 'base_generic.html')
 
+    def test_searchResult(self):
+        response = client.get(reverse('search_result'))
+        assert (response.templates[0].name == 'search_result.html')
+        assert (response.templates[1].name == 'base_generic.html')
+
 
 class TestInstructorPage(TestCase):
     def test_InstructorUrl(self):

@@ -21,6 +21,15 @@ class Course(models.Model):
     course_id = models.CharField(max_length=32, unique=True)
     section_id = models.ForeignKey(Section, on_delete=models.CASCADE)
 
+#database for syllabus
+class File(models.Model):
+    syllabus_name = models.CharField(max_length=128)
+    instructor_name = models.CharField(max_length=30)
+    syllabus_file = models.FileField(upload_to='files')
+    def __str__(self):
+        return self.syllabus_name
+
+
 
 # TODO: Syllabus setup as a custom filetype that we link and open here?
 class Syllabus(models.Model):

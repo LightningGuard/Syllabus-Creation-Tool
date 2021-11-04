@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <center>
+        {% if searched %}
+            <h1>Searched result for {{searched}}</h1>
+            </br>
+            {% if files %}
+                {% for file in files %}
+        <a href="">{{file}} - {{file.instructor_name}}</a>></br>
+                {% endfor %}
+            {% else %}
+                <h1>Syllabus not in the database</h1>>
+            {% endif %}
+        {% else %}
+            <h1>Invalid input</h1>
+        {% endif %}
+    </center>>
+
+{% endblock %}
