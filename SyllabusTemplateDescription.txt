@@ -11,7 +11,7 @@ How to run the software:
 1)First you will need to clone the project
 2)switch to the dev branch
 3)Download the .env from Discord and save it to the project root directory (where you git cloned)
-4)Download your browser driver and then save it into the project templatetags folder inside of core folder
+4)Download your browser driver and then save it into the project core folder
 5)python -m pip install selenium
 4)If not using pycharm, create a venv and switch to it
 5)python -m pip install -r requirements.txt
