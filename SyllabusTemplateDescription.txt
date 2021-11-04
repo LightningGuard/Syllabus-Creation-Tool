@@ -4,7 +4,7 @@
 
 Software needed to run:
 
-For this to function you will need some ide to run the project (I used pycharm). Then for it work you will need python, django, selenium and the driver for the browser you use ( I used chromedriver). The browser driver needs to be place into the templatetags folder inside of core folder of the project for it to work.
+For this to function you will need some ide to run the project (I used pycharm). Then for it work you will need python, django, selenium and the driver for the browser you use ( I used chromedriver). The browser driver needs to be place into the core folder of the project for it to work.
 
 How to run the software:
 
