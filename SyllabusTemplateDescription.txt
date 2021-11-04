@@ -2,14 +2,14 @@ For this iteration my main part was to make something that a faculty member coul
 
 Software needed to run:
 
-For this to function you will need some ide to run the project (I used pycharm). Then for it work you will need python, django, selenium and the driver for the browser you use ( I used chromedriver). The browser driver needs to be place into the templatetags folder inside of core folder of the project for it to work.
+For this to function you will need some ide to run the project (I used pycharm). Then for it work you will need python, django, selenium and the driver for the browser you use ( I used chromedriver). The browser driver needs to be place into the core folder of the project for it to work.
 
 How to run the software:
 
 1)First you will need to clone the project
 2)switch to the dev branch
 3)Download the .env from Discord and save it to the project root directory (where you git cloned)
-4)Download your browser driver and then save it into the project templatetags folder inside of core folder
+4)Download your browser driver and then save it into the project core folder
 5)python -m pip install selenium
 4)If not using pycharm, create a venv and switch to it
 5)python -m pip install -r requirements.txt
