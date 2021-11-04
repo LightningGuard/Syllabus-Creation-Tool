@@ -1,0 +1,214 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Create Syllabus - Syllabus Tool</title>{% endblock %}
+
+{% block content %}
+
+<html>
+
+<head>
+
+    <h1>
+        <center>Create Your Syllabus</center>
+    </h1>
+
+    </title>
+    <style>
+        .tab1 {
+            tab-size: 8;
+        }
+
+        .indent_syllabus {
+        margin-left: 500px;
+        }
+
+        .indent_syllabus2 {
+        margin-left: 900px;
+    }
+    </style>
+
+</head>
+<body>
+
+    <hr>
+
+    <form action="{% url 'syllabusViewer' %}" method="post">
+    {% csrf_token %}
+        <dev class="indent_syllabus">
+            Course Name: {% if course_name_empty %}  <span style="color: #ff0000"> Empty </span> {% endif %}</br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="course_name"> </br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            Course Id:{% if course_id_empty %} <span style="color: #ff0000"> Empty </span> {% endif %}</br>
+         </dev>
+
+        <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="course_id"> </br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            Full Name: {% if instructor_name_empty %} <span style="color: #ff0000"> Empty </span> {% endif %}</br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="prof_name"> </br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            Email Address: {% if instructor_email_empty %} <span style="color: #ff0000"> Empty </span>
+            {% elif instructor_email_invalid %} <span style="color: #ff0000"> invalid didnt have @ </span> {% endif %}</br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="prof_email"></br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            Office Location: {% if instructor_office_empty %} <span style="color: #ff0000"> Empty </span> {% endif %}</br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="prof_office"></br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            Office Days (/): {% if instructor_days_empty %} <span style="color: #ff0000"> Empty </span> {% endif %}</br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="office_day"></br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            Office Hours (-):{% if instructor_hours_empty %} <span style="color: #ff0000"> Empty </span>
+            {% elif instructor_hours_invalid %} <span style="color: #ff0000"> invalid didnt have - </span> {% endif %}</br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="office_hours"></br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            Ta's Names (use , to split names): {% if ta_names_empty %} <span style="color: #ff0000"> Empty </span>
+            {% elif ta_names_more %} <span style="color: #ff0000"> invalid had more names than emails - </span> {% endif %}</br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="ta_names"></br>
+
+        </dev>
+
+        <dev class="indent_syllabus">
+            Ta's Email (use , to split emails):{% if ta_emails_empty %}  <span style="color: #ff0000"> Empty </span> </font>
+            {% elif ta_emails_more %} <span style="color: #ff0000"> invalid had more emails than names - </span>
+            {% elif ta_emails_invalid %} <span style="color: #ff0000"> invalid didnt have @ </span>{% endif %}</br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="ta_emails"></br>
+
+        </dev>
+
+        <dev class="indent_syllabus">
+            Meeting Time (use -):{% if meeting_times_empty %} <span style="color: #ff0000"> Empty </span>
+            {% elif meeting_times_invalid %} <span style="color: #ff0000"> invalid didnt use - </span> {% endif %}</br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="class_time"></br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            Meeting Days (use /): {% if meeting_days_empty %} <span style="color: #ff0000"> Empty </span> {% endif %}</br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="class_days"></br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            Course Topics: (use , to split): {% if course_topics_empty %} <span style="color: #ff0000"> Empty </span> {% endif %} </br>
+        </dev>
+
+        <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="course_topics"></br>
+        </dev>
+
+       <dev class="indent_syllabus">
+            Needed Materials:{% if course_requirements_empty %} <span style="color: #ff0000"> Empty </span> {% endif %}</br>
+       </dev>
+
+       <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="materials"></br>
+       </dev>
+
+      <dev class="indent_syllabus">
+            Course Description:{% if course_description_empty %} <span style="color: #ff0000"> Empty </span> {% endif %}</br>
+      </dev>
+
+      <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="course_description"></br>
+      </dev>
+
+      <dev class="indent_syllabus">
+            Course Pre-Req:{% if course_pre_req_empty %} <span style="color: #ff0000"> Empty </span> {% endif %}</br>
+      </dev>
+
+      <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="course_pre_req"></br>
+
+      </dev>
+
+      <dev class="indent_syllabus">
+            Assignment Type(use , to split types):{% if grading_type_empty %} <span style="color: #ff0000"> Empty </span>
+            {% elif  grading_type_more %} <span style="color: #ff0000"> invalid has more grade types than values - </span> {% endif %}</br>
+      </dev>
+
+      <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="grading_type"></br>
+      </dev>
+
+      <dev class="indent_syllabus">
+            Grade Value (use %, to split values): {% if grading_value_empty %} <span style="color: #ff0000"> Empty </span>
+            {% elif  grading_value_more %} <span style="color: #ff0000"> invalid has more grade values than types - </span> {% endif %}</br>
+      </dev>
+
+      <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="grading_value"></br>
+      </dev>
+
+      <dev class="indent_syllabus">
+            Assignments (use %, to split Assignments):{% if work_empty %} <span style="color: #ff0000"> Empty </span>
+             {% elif  work_more %} <span style="color: #ff0000"> invalid has more assignments than dates - </span> {% endif %}</br>
+      </dev>
+
+      <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="work"></br>
+
+      </dev>
+
+      <dev class="indent_syllabus">
+            Due Dates(mm/dd use , to split dates): {% if assignment_dates_empty %} <span style="color: #ff0000"> Empty </span>
+            {% elif assignment_dates_invalid %} <span style="color: #ff0000"> invalid did use / </span>
+            {% elif  assignment_dates_more %} <span style="color: #ff0000"> invalid has more dates than assignments - </span> {% endif %}</br>
+      </dev>
+
+      <dev class="indent_syllabus">
+            <input type="text" style = width:350px;" name="due_dates"></br>
+      </dev>
+
+    <dev class="indent_syllabus2">
+        <button type="submit">Submit</button>
+    </dev>
+
+</form>
+
+</body>
+
+</html>
+
+{% endblock %}
