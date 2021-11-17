@@ -9,3 +9,6 @@ def student(request):
 
 def instructor(request):
     return render(request, 'instructor.html')
+
+def profile(request):
+    return render(request, "registration/profile.html")
