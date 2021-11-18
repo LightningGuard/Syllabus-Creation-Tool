@@ -1,5 +1,9 @@
 {% if user.is_authenticated %} 
-    You are logged in as {{ user.first_name}} 
+    You are logged in as {{ user }} 
+    <!-- Backend check if user is student/teacher/guest/admin/etc. Defualting to student-->
+    <head>
+        <meta http-equiv="refresh" content="5; url=http://127.0.0.1:8000/student" />
+    </head>
 {% else %}
     <a href="/accounts/login">Login</a>
 {% endif %}
