@@ -41,6 +41,11 @@ class TestStudentPage(TestCase):
         assert (response.templates[0].name == 'student.html')
         assert (response.templates[1].name == 'base_generic.html')
 
+    def test_searchResult(self):
+        response = client.get(reverse('search_result'))
+        assert (response.templates[0].name == 'search_result.html')
+        assert (response.templates[1].name == 'base_generic.html')
+
 
 class TestInstructorPage(TestCase):
     def test_InstructorUrl(self):
@@ -50,6 +55,11 @@ class TestInstructorPage(TestCase):
     def test_InstructorTemplates(self):
         response = client.get(reverse('instructor'))
         assert (response.templates[0].name == 'instructor.html')
+        assert (response.templates[1].name == 'base_generic.html')
+
+    def test_upload(self):
+        response = client.get(reverse('upload'))
+        assert (response.templates[0].name == 'upload.html')
         assert (response.templates[1].name == 'base_generic.html')
 
 
@@ -330,3 +340,4 @@ class TestCalendarFunctionality(StaticLiveServerTestCase):
 
         self.browser.find_element_by_xpath('/html/body/div[1]/div[1]/div[1]/button').click()
         time.sleep(3)
+

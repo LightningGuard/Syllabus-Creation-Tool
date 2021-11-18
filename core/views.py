@@ -1,7 +1,12 @@
-from django.shortcuts import render
+
+from django.shortcuts import render, redirect
+from .models import File
+from .forms import FileForm
+from django.core.files.storage import FileSystemStorage
 from django.core.mail import send_mail
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
+
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
@@ -14,9 +19,33 @@ def student(request):
 def instructor(request):
     return render(request, 'instructor.html')
 
+def search_result(request):
+    if request.method == "POST":
+        searched = request.POST["searched"]
+        files = File.objects.filter(syllabus_name__contains=searched)
+        return render(request, 'search_result.html',
+                      {'searched':searched,
+                       'files':files})
+    else:
+        return render(request, 'search_result.html')
+
+def upload(request):
+    if request.method == "POST":
+        form = FileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('upload')
+    else:
+        form = FileForm()
+    return render(request, 'upload.html', {
+        'form':form
+    })
+
+
 def profile(request):
     return render(request, "registration/profile.html")
   
+
 def contactUs(request):
     if request.method == 'POST':
         name = request.POST.get('name')

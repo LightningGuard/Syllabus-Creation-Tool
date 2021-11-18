@@ -11,15 +11,24 @@
     </nav>
     {% endblock %}
 
+    {% block searchbar %}
+    <form action="{% url 'search_result' %}" method="POST">
+        {% csrf_token %}
+        <input type="search" placeholder="search syllabus" name="searched"/>
+        <button type="submit">search</button>>
+    </form>
+    {% endblock %}
+
     <h1>Student Page</h1>
     <ul>
         <li>Syllabus 1</li>
         <li>Syllabus 2</li>
         <li>Syllabus 3</li>
     </ul>
-
     <form action="{% url 'dueDates' %}">
         {% csrf_token %}
         <button type="submit" >Check Due Dates</button>
     </form>
+
 {% endblock %}
+
