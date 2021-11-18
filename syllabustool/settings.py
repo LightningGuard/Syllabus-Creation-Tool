@@ -27,6 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
+
 EMAIL_BACKEND ="django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
@@ -40,6 +41,7 @@ EMAIL_USE_SSL = False
 #EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 #EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 #EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
+
 
 ALLOWED_HOSTS = []
 
@@ -137,7 +139,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+# Heroku
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+import django_heroku
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
