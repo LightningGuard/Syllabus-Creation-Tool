@@ -30,7 +30,6 @@ class File(models.Model):
         return self.syllabus_name
 
 
-
 # TODO: Syllabus setup as a custom filetype that we link and open here?
 class Syllabus(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
