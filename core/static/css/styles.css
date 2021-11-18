@@ -5,25 +5,62 @@
     --UMBC_darkgrey: #636466
 }
 
-body {
-    background-color: var(--UMBC_darkgrey);
-    color: var(--UMBC_gold);
-}
-
-
 #landingLeftContainer {
     height: 100%;
     background-color: grey;
 }
 
-#landingRightContainer {
-    height: 100%;
-    background-color: red;
+
+body{
+	min-width:700;
+	background-color:#f8f8ff;
+	text-align: center;
+	}
+
+.header{
+	background-image:url('https://styleguide.umbc.edu/files/2019/05/maryland-flag-background-black.jpg');
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
-.navbar {
-    background-color: var(--UMBC_black);
-    color: var(--UMBC_gold);
+.content{
+  
 }
+
+.login{
+float:right;
+
+}
+
+.active{
+	background-color:#F5CD00;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333333;
+  overflow: auto;
+}
+
+li{
+	float:left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 12px 14px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+
+
 

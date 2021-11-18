@@ -3,6 +3,28 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 
 
+class Student(models.Model):
+    #sets type for student, null=True so that if it is not specified no error
+    first_name = models.CharField(max_length=200, null=True)
+    last_name = models.CharField(max_length=200, null=True)
+    email = models.CharField(max_length=200, null=True)
+    Student_ID = models.CharField(max_length=200,null=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
+
+class Instructor(models.Model):
+    #sets type for teacher, null=True so that if it is not specified no error
+    first_name = models.CharField(max_length=200, null=True)
+    last_name = models.CharField(max_length=200, null=True)
+    email = models.CharField(max_length=200, null=True)
+    Instructor_ID = models.CharField(max_length=200,null=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
+
 # Custom User class (extensible fields)
 class User(AbstractUser):
     pass
@@ -20,6 +42,15 @@ class Course(models.Model):
     course_name = models.CharField(max_length=128)
     course_id = models.CharField(max_length=32, unique=True)
     section_id = models.ForeignKey(Section, on_delete=models.CASCADE)
+
+#database for syllabus
+class File(models.Model):
+    syllabus_name = models.CharField(max_length=128)
+    instructor_name = models.CharField(max_length=30)
+    syllabus_file = models.FileField(upload_to='files')
+    def __str__(self):
+        return self.syllabus_name
+
 
 # TODO: Syllabus setup as a custom filetype that we link and open here?
 class Syllabus(models.Model):

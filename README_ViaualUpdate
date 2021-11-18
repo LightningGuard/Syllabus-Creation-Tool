@@ -1,0 +1,43 @@
+"# Syllabus-Creation-Tool - Visual update" - Destin Krepps
+For  iteration 3 ive focused on creating an easy way to navigate the site with more clean and modernized visuals to do this
+i worked on learning html and css styling along side building logos and such in photoshop to give our site personality
+alongside moving our email security leaks into a spot where it was not vulnerable which allows us to use our email system
+without worry of abuse. Lastly i collaborated with a teammate to implement said email notification system i put into place
+last iteration into their previously completed web app to show more possible application within our site.
+
+
+Running the project:
+    1) Clone the project
+    2) Switch to the dev branch and pull
+    3) Download the .env from Discord and save it to the project root directory (where you git cloned)
+    4) If not using pycharm, create a venv and switch to it
+
+  Run in a terminal:
+
+    python -m pip install -r requirements.txt
+    python manage.py migrate
+    python manage.py runserver
+
+    once done to access the web page navigate in a browser
+    to http://127.0.0.1:8000/
+    and then this iteration you can use the navbar to make your way around the site
+
+Testing the project:
+    1) Download as above (if haven't already.)
+    2) Download chromedriver 9.5 unzip and store in core (we already have it there if not)
+
+   In a terminal:
+    1) python -m pip install selenium
+    2) python manage.py test
+
+    this will go through our old tests and doing so will also test what i worked on this iteration with looks and the email
+    within the syllabus creator app
+
+    1)a test opening and entering valid input for name,email,and inquiry then clicking submit
+    2)a test opening and not entering anything in the text fields then clicking submit (this will reload and show all three fields shows errors telling user to fill in all fields)
+    3)a test opening the site and entering an invalid email address then clicking submit (this will show the user that they have messed up that field and must enter a valid address)
+    4)tests that test syllabus creators fields and show that the email system is not failing
+
+    these tests are sufficient in showing off new look in different sizes of the browser window and that with all the
+    stylistic updating the visuals dont interrupt previously completed things and that the email is working in syllabus
+    creator.

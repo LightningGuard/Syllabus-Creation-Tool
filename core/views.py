@@ -1,8 +1,11 @@
-from django.shortcuts import render
+
+from django.shortcuts import render, redirect
+from .models import File
+from .forms import FileForm
+from django.core.files.storage import FileSystemStorage
 from django.core.mail import send_mail
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
-
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -15,6 +18,33 @@ def student(request):
 
 def instructor(request):
     return render(request, 'instructor.html')
+
+def search_result(request):
+    if request.method == "POST":
+        searched = request.POST["searched"]
+        files = File.objects.filter(syllabus_name__contains=searched)
+        return render(request, 'search_result.html',
+                      {'searched':searched,
+                       'files':files})
+    else:
+        return render(request, 'search_result.html')
+
+def upload(request):
+    if request.method == "POST":
+        form = FileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('upload')
+    else:
+        form = FileForm()
+    return render(request, 'upload.html', {
+        'form':form
+    })
+
+
+def profile(request):
+    return render(request, "registration/profile.html")
+  
 
 def contactUs(request):
     if request.method == 'POST':
@@ -82,6 +112,9 @@ def contactUs(request):
 def createSyllabus(request):
     return render(request, 'createSyllabus.html')
 
+def dueDates(request):
+    return render(request, 'dueDates.html')
+
 def syllabusViewer(request):
     # this is just checking if the request was under post which it should be since i made the method post
     # also it is getting the date from user input and setting it equal to the variables i made
@@ -105,6 +138,9 @@ def syllabusViewer(request):
         grading_value = request.POST.get('grading_value', ",")
         work = request.POST.get('work', ",")
         assignment_dates = request.POST.get('due_dates', ",")
+        Pregnant_and_Parenting_Students = request.POST.get('Pregnant_and_Parenting_Students')
+        Religious_Observances_Accommodations = request.POST.get('Religious_Observances_Accommodations')
+        Hate_Bias_Discrimination_and_Harassment = request.POST.get('Hate_Bias_Discrimination_and_Harassment')
 
         counter = 0
         counter1 = 0
@@ -166,6 +202,24 @@ def syllabusViewer(request):
         test6 = [course_topics]
         for element6 in test6:
             list6 = element6.split(',')
+
+        # will check if the Pregnant_and_Parenting_Students box was selected
+        if not Pregnant_and_Parenting_Students:
+            Pregnant_and_Parenting_Students = False
+        else:
+            Pregnant_and_Parenting_Students = True
+
+        # will check if the Religious_Observances_Accommodations box was selected
+        if not Religious_Observances_Accommodations:
+            Religious_Observances_Accommodations = False
+        else:
+            Religious_Observances_Accommodations = True
+
+        # will check if the Pregnant_and_Parenting_Students box was selected
+        if not Hate_Bias_Discrimination_and_Harassment:
+            Hate_Bias_Discrimination_and_Harassment = False
+        else:
+            Hate_Bias_Discrimination_and_Harassment = True
 
         # will check if course name is empty
         course_name_empty = False
@@ -406,15 +460,23 @@ def syllabusViewer(request):
             'grading_value_more': grading_value_more,
             'assignment_dates_more': assignment_dates_more,
             'work_more': work_more,
+            'Pregnant_and_Parenting_Students': Pregnant_and_Parenting_Students,
+            'Religious_Observances_Accommodations': Religious_Observances_Accommodations,
+            'Hate_Bias_Discrimination_and_Harassment': Hate_Bias_Discrimination_and_Harassment
         }
+    else:
+        return render(request, 'syllabusViewer.html')
+
+
+        message = 'This is a confirmation email letting you know you have created a new syllabus for course, ' + course_name + ':' + course_id + '. Thank you for using our service! :)'
 
         if errorCounter > 0:
             return render(request, 'createSyllabus.html', data)
         else:
+            send_mail(instructor_name, message, 'SyllabusToolAcc@gmail.com' , [instructor_email], fail_silently=False)
             return render(request, 'syllabusViewer.html', data)
+
 
 #will just redirect back to creatSyllabus but did not really use
 def addSyllabus(request):
     return HttpResponseRedirect(reverse('createSyllabus'))
-
-
