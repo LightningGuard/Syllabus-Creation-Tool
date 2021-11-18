@@ -12,6 +12,47 @@
 </head>
 
 <body>
-    {% block content %}<!-- Overridden -->{% endblock %}
+
+		<center>
+		<div class="header">
+			<a href="/">
+				<img src= "{% static 'media/syllabusLOGO.png' %}" class="homelogo"/>
+			</a>
+
+			<div class="login">
+				<input type="text" id="username_entry" placeholder="Username"></input>
+				<input type="text" placeholder="Password"></input>
+				<button onlick="{% url 'student' %}" id="LoginButton">Login</button>
+			</div>
+
+
+		</div>
+		<ul style="font-family:helvetica; width:100%;background-color:#333333;">
+
+
+			<li><a href="/" class="active">Home</a></li>
+
+			<!--once instructors pages are added we can make this instructor only-->
+			<li><a href="/createSyllabus">Create a Syllabus</a></li>
+
+			<li><a href="">Add</a></li>
+			<li><a href="">Your</a></li>
+			<li><a href="">Pages</a></li>
+			<li><a href="">Here</a></li>
+
+			<li style="float:right;font-family:helvetica;"><a href="/contactUs">Contact us</a></li>
+
+		</ul>
+		<hr style="color:purple;">
+
+
+		<div class="content">
+    		{% block content %}<!-- Overridden -->{% endblock %}
+		</div>
+
+
+
+			<p style="color:gray;">© 2021-20?? Syllabus Creation Tool All Rights Reserved (someday maybe).<br>made by students of UMBC </p>
+		</center>
 </body>
 </html>

@@ -30,7 +30,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 EMAIL_BACKEND ="django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_PASSWORD = 'Znqbdyq8'
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_HOST_USER = 'SyllabusToolAcc@gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
