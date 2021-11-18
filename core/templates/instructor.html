@@ -9,4 +9,14 @@
         <li>Syllabus 2</li>
         <li>Syllabus 3</li>
     </ul>
+
+
+    <!-- This creates a button on the instructor page so that they can click which direct them to createSyllabus
+         to create your own syllabus
+    -->
+    <form action="{% url 'createSyllabus' %}">
+        {% csrf_token %}
+        <button type="submit" >Make a Syllabus</button>
+    </form>
+
 {% endblock %}

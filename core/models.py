@@ -43,7 +43,6 @@ class Course(models.Model):
     course_id = models.CharField(max_length=32, unique=True)
     section_id = models.ForeignKey(Section, on_delete=models.CASCADE)
 
-
 # TODO: Syllabus setup as a custom filetype that we link and open here?
 class Syllabus(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
