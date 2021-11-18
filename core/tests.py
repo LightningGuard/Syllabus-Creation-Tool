@@ -41,3 +41,8 @@ class TestInstructorPage(TestCase):
         response = client.get(reverse('instructor'))
         assert (response.templates[0].name == 'instructor.html')
         assert (response.templates[1].name == 'base_generic.html')
+
+    def test_upload(self):
+        response = client.get(reverse('upload'))
+        assert (response.templates[0].name == 'upload.html')
+        assert (response.templates[1].name == 'base_generic.html')

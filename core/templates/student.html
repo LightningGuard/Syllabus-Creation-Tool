@@ -12,7 +12,7 @@
     {% endblock %}
 
     {% block searchbar %}
-    <form action="{% url 'search_result' %}" method = POST>
+    <form action="{% url 'search_result' %}" method="POST">
         {% csrf_token %}
         <input type="search" placeholder="search syllabus" name="searched"/>
         <button type="submit">search</button>>
