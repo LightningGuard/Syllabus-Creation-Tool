@@ -9,12 +9,13 @@ Running the project:
     3) Download the .env from Discord and save it to the project root directory (where you git cloned)  
     4) If not using pycharm, create a venv and switch to it  
     
-  Run in a terminal:  
+  Run in a terminal: 
   
     python -m pip install -r requirements.txt      
     python manage.py migrate  
     python manage.py runserver  
-  
+In order for the search to work in the student page, make sure you uploaded something in instructor page.
+
 Testing the project: 
     1) Download as above (if haven't already.)  
     
