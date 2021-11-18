@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     # Applications for SyllabusTool
     'core.apps.CoreConfig',  # Mange the site and connections between any apps we create
 
-    'social_django' #For google account authentication
 ]
 
 MIDDLEWARE = [
