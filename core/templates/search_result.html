@@ -16,7 +16,7 @@
             {% if files %}
                 {% for file in files %}
                 <a href="{{ file.syllabus_file.url }}" class="btn btn-primary btn-sm" target="_blank">
-                {{file}} - {{file.instructor_name}}</a>></br>
+                {{file}} - {{file.instructor_name}}</a>
                 {% endfor %}
             {% else %}
                 <h1>Not in database</h1>
@@ -25,4 +25,6 @@
             <h1>Invalid input</h1>
         {% endif %}
     </center>>
+<a href="{% url 'student' %}" class="btn btn-primary btn-sm">
+                back</a>
 {% endblock %}

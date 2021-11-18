@@ -1,3 +1,4 @@
+{% extends "base_generic.html" %}
 {% block title %}<title>Upload - Syllabus Tool</title>{% endblock %}
 
 {% block content %}
@@ -7,4 +8,6 @@
         {{form.as_p}}
         <button type="submit" class="btn btn-primary">upload</button>
     </form>>
+<a href="{% url 'instructor' %}" class="btn btn-primary btn-sm">
+                back</a>
 {% endblock %}
