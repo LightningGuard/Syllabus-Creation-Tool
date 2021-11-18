@@ -1,10 +1,14 @@
 from django.contrib import admin
-from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User
+from .models import Student, Instructor
+
+
 
 from .models import File
 admin.site.register(User, UserAdmin)
+
+admin.site.register(Student)
+admin.site.register(Instructor)
 
 # Register your models here.
 class Syllabus(admin.ModelAdmin):

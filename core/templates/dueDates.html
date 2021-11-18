@@ -1,0 +1,74 @@
+<!--- This is used so i can reference the css files --->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students Due Dates</title>
+    <link rel="stylesheet"  type = "text/css" href="{% static 'css/styles2.css' %}">
+
+</head>
+<body>
+
+    <div id="holder">
+
+        <div id="Title">
+            <!--- This will be an arrow so you can go to the previous month --->
+            <div >
+                <button id="previousMonth"> < </button>
+             </div>
+
+        <div id="showMonth"></div>
+            <!--- This will be an arrow so you can go to the next month --->
+            <div >
+                <button id="nextMonth"> > </button>
+             </div>
+
+        </div>
+
+        <!--- will just be the header for the days of the week --->
+        <div id ="days">
+            <div>Sunday</div>
+            <div>Monday</div>
+            <div>Tuesday</div>
+            <div>Wednesday</div>
+            <div>Thursday</div>
+            <div>Friday</div>
+            <div>Saturday</div>
+
+        </div>
+
+        <div id="calendar">
+
+        </div>
+
+    </div>
+
+    <!--- will be a pop-up so you can enter data and it will then update the calendar --->
+    <div id="newModal">
+
+        <p> Enter An Assignment: </p>
+        <input id="assignments"/>
+
+        <button id="Add"> Add </button>
+        <button id="Exit"> Close </button>
+    </div>
+
+    <!--- will be a pop-up so you can either remove an assignment or update it --->
+    <div id="editModal">
+
+        <p> Edit Assignments: </p>
+        <input id="assignments2"/>
+
+        <button id="Save"> Add </button>
+        <button id="Close"> Close </button>
+
+    </div>
+
+    <div id="modal"></div>
+
+    <script src="{% static 'javascript/calendar.js' %}"></script>
+
+</body>
+</html>

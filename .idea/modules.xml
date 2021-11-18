@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/venv.iml" filepath="$PROJECT_DIR$/.idea/venv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Syllabus-Creation-Tool.iml" filepath="$PROJECT_DIR$/.idea/Syllabus-Creation-Tool.iml" />
     </modules>
   </component>
 </project>

@@ -25,4 +25,10 @@
         <li>Syllabus 2</li>
         <li>Syllabus 3</li>
     </ul>
+    <form action="{% url 'dueDates' %}">
+        {% csrf_token %}
+        <button type="submit" >Check Due Dates</button>
+    </form>
+
 {% endblock %}
+
