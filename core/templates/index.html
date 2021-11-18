@@ -40,6 +40,14 @@
                         <button onlick="{% url 'student' %}" id="LoginButton">Login</button>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-8">
+
+                    </div>
+                    <div class="col-md-4">
+                        <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div> <!-- row -->
