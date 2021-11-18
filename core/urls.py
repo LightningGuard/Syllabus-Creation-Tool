@@ -12,6 +12,5 @@ urlpatterns = [
     path('createSyllabus', views.createSyllabus, name='createSyllabus'),
     path('syllabusViewer', views.syllabusViewer, name='syllabusViewer'),
     path('addSyllabus', views.addSyllabus, name='addSyllabus'),
-
-
+    path('dueDates', views.dueDates, name='dueDates'),
 ]
