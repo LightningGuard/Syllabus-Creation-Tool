@@ -27,12 +27,21 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-EMAIL_HOST = config('EMAIL_HOST', default='localhost')
-EMAIL_PORT = config('EMAIL_PORT', default=25, cast=int)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
-EMAIL_USE_SSL = config('EMAIL_USE_SSL', default=True, cast=bool)
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
+
+EMAIL_BACKEND ="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = 'SyllabusToolAcc@gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+#EMAIL_HOST = config('EMAIL_HOST', default='localhost')
+#EMAIL_PORT = config('EMAIL_PORT', default=25, cast=int)
+#EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+#EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+#EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
+
 
 ALLOWED_HOSTS = []
 

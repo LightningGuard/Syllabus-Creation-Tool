@@ -99,7 +99,7 @@ class TestInstructorPageLive(StaticLiveServerTestCase):
     def test_work(self):
         self.browser.get(('%s%s' % (self.live_server_url, '/instructor')))
         time.sleep(3)
-        self.browser.find_element_by_xpath('/html/body/form/button').click()
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/button').click()
         time.sleep(3)
 
 #this will run through everything with correct data and then submit. Which will take you to the viewer page and display data
@@ -117,28 +117,29 @@ class TestSyllabusMakerPage(StaticLiveServerTestCase):
     def test_work(self):
         self.browser.get(('%s%s' % (self.live_server_url, '/createSyllabus')))
         time.sleep(3)
-        self.browser.find_element_by_xpath('/html/body/form/dev[2]/input').send_keys('FOUNDATIONS OF BIOLOGY II: ECOLOGY & EVOLUTION')
-        self.browser.find_element_by_xpath('/html/body/form/dev[4]/input').send_keys('BIOL 142')
-        self.browser.find_element_by_xpath('/html/body/form/dev[6]/input').send_keys('Tony Smith')
-        self.browser.find_element_by_xpath('/html/body/form/dev[8]/input').send_keys('tsmith28@umbc.edu')
-        self.browser.find_element_by_xpath('/html/body/form/dev[10]/input').send_keys('Ite 203')
-        self.browser.find_element_by_xpath('/html/body/form/dev[12]/input').send_keys('M/W')
-        self.browser.find_element_by_xpath('/html/body/form/dev[14]/input').send_keys('2-3:15')
-        self.browser.find_element_by_xpath('/html/body/form/dev[16]/input').send_keys('Joseph Young,Zoe Morgan,Jennifer Gill')
-        self.browser.find_element_by_xpath('/html/body/form/dev[18]/input').send_keys('jyoung2@umbc.edu,mjenn10@umbc.edu,jgill2@umbc.edu')
-        self.browser.find_element_by_xpath('/html/body/form/dev[20]/input').send_keys('4-5:45')
-        self.browser.find_element_by_xpath('/html/body/form/dev[22]/input').send_keys('M/W')
-        self.browser.find_element_by_xpath('/html/body/form/dev[24]/input').send_keys('Natural Selection,Genetics,Speciation,Phylogeny')
-        self.browser.find_element_by_xpath('/html/body/form/dev[26]/input').send_keys('Biological Science 4th edition (volume 2), Scott Freeman, Prentice Hall Publishers')
-        self.browser.find_element_by_xpath('/html/body/form/dev[28]/input').send_keys('The goal of this course is to present an important series of topics in organismal biology ')
-        self.browser.find_element_by_xpath('/html/body/form/dev[30]/input').send_keys('Must complete MATH 150 or MATH 155 or MATH 151 with a C grade or better')
-        self.browser.find_element_by_xpath('/html/body/form/dev[32]/input').send_keys('Homework,Exam,Quiz')
-        self.browser.find_element_by_xpath('/html/body/form/dev[34]/input').send_keys('10%,60%,30%')
-        self.browser.find_element_by_xpath('/html/body/form/dev[36]/input').send_keys('Read chapter 1,Read chapter 2,Read chapter 3,Read chapter 4')
-        self.browser.find_element_by_xpath('/html/body/form/dev[38]/input').send_keys('07/16,07/22,07/26,07/28')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[2]/input').send_keys('FOUNDATIONS OF BIOLOGY II: ECOLOGY & EVOLUTION')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[4]/input').send_keys('BIOL 142')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[6]/input').send_keys('Tony Smith')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[8]/input').send_keys('randomemail@umbc.edu')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[10]/input').send_keys('Ite 203')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[12]/input').send_keys('M/W')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[14]/input').send_keys('2-3:15')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[16]/input').send_keys('Joseph Young,Zoe Morgan,Jennifer Gill')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[18]/input').send_keys('jyoung2@umbc.edu,mjenn10@umbc.edu,jgill2@umbc.edu')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[20]/input').send_keys('4-5:45')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[22]/input').send_keys('M/W')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[24]/input').send_keys('Natural Selection,Genetics,Speciation,Phylogeny')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[26]/input').send_keys('Biological Science 4th edition (volume 2), Scott Freeman, Prentice Hall Publishers')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[28]/input').send_keys('The goal of this course is to present an important series of topics in organismal biology ')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[30]/input').send_keys('Must complete MATH 150 or MATH 155 or MATH 151 with a C grade or better')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[32]/input').send_keys('Homework,Exam,Quiz')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[34]/input').send_keys('10%,60%,30%')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[36]/input').send_keys('Read chapter 1,Read chapter 2,Read chapter 3,Read chapter 4')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[38]/input').send_keys('07/16,07/22,07/26,07/28')
         time.sleep(3)
 
-        self.browser.find_element_by_xpath('/html/body/form/dev[46]/button').click()
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[39]/button').click()
+
         time.sleep(5)
 
 
@@ -156,26 +157,28 @@ class TestSyllabusBadInput(StaticLiveServerTestCase):
         self.browser.get(('%s%s' % (self.live_server_url, '/createSyllabus')))
         time.sleep(3)
 
-        self.browser.find_element_by_xpath('/html/body/form/dev[2]/input').send_keys(
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[2]/input').send_keys(
             'FOUNDATIONS OF BIOLOGY II: ECOLOGY & EVOLUTION')
-        self.browser.find_element_by_xpath('/html/body/form/dev[4]/input').send_keys('BIOL 142')
-        self.browser.find_element_by_xpath('/html/body/form/dev[6]/input').send_keys('Tony Smith')
-        self.browser.find_element_by_xpath('/html/body/form/dev[8]/input').send_keys('tsmith28umbc.edu')
-        self.browser.find_element_by_xpath('/html/body/form/dev[10]/input').send_keys('Ite 203')
-        self.browser.find_element_by_xpath('/html/body/form/dev[12]/input').send_keys('M/W')
-        self.browser.find_element_by_xpath('/html/body/form/dev[14]/input').send_keys('23:15')
-        self.browser.find_element_by_xpath('/html/body/form/dev[16]/input').send_keys('Joseph Young,Zoe Morgan,Jennifer Gill')
-        self.browser.find_element_by_xpath('/html/body/form/dev[18]/input').send_keys('jyoung2@umbc.edu,mjenn10@umbc.edu,jgill2@umbc.edu')
-        self.browser.find_element_by_xpath('/html/body/form/dev[20]/input').send_keys('4-5:45')
-        self.browser.find_element_by_xpath('/html/body/form/dev[22]/input').send_keys('M/W')
-        self.browser.find_element_by_xpath('/html/body/form/dev[24]/input').send_keys('Natural Selection,Genetics,Speciation,Phylogeny')
-        self.browser.find_element_by_xpath('/html/body/form/dev[28]/input').send_keys('The goal of this course is to present an important series of topics in organismal biology ')
-        self.browser.find_element_by_xpath('/html/body/form/dev[32]/input').send_keys('Homework,Exam,Quiz')
-        self.browser.find_element_by_xpath('/html/body/form/dev[34]/input').send_keys('10%,60%,30%')
-        self.browser.find_element_by_xpath('/html/body/form/dev[38]/input').send_keys('07/16,07/22,07/26,07/28')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[4]/input').send_keys('BIOL 142')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[6]/input').send_keys('Tony Smith')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[8]/input').send_keys('randomemailumbc.edu')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[10]/input').send_keys('Ite 203')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[12]/input').send_keys('M/W')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[14]/input').send_keys('23:15')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[16]/input').send_keys('Joseph Young,Zoe Morgan,Jennifer Gill')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[18]/input').send_keys('jyoung2@umbc.edu,mjenn10@umbc.edu,jgill2@umbc.edu')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[20]/input').send_keys('4-5:45')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[22]/input').send_keys('M/W')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[24]/input').send_keys('Natural Selection,Genetics,Speciation,Phylogeny')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[28]/input').send_keys('The goal of this course is to present an important series of topics in organismal biology ')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[32]/input').send_keys('Homework,Exam,Quiz')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[34]/input').send_keys('10%,60%,30%')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[38]/input').send_keys('07/16,07/22,07/26,07/28')
         time.sleep(3)
 
-        self.browser.find_element_by_xpath('/html/body/form/dev[46]/button').click()
+
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[39]/button').click()
+
         time.sleep(5)
 
 
@@ -191,13 +194,13 @@ class TestContactPageCorrect(StaticLiveServerTestCase):
         self.browser.get(( '%s%s' % (self.live_server_url, '/contactUs')))
         time.sleep(3)
 
-        self.browser.find_element_by_xpath('/html/body/div[1]/form/div[1]/input').send_keys('john doe')
-        self.browser.find_element_by_xpath('/html/body/div[1]/form/div[2]/input').send_keys('goodEmail@gmail.com')
-        self.browser.find_element_by_xpath('/html/body/div[1]/form/div[3]/textarea').send_keys('test message')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/div[1]/form/div[1]/input').send_keys('john doe')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/div[1]/form/div[2]/input').send_keys('goodEmail@gmail.com')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/div[1]/form/div[3]/textarea').send_keys('test message')
 
         time.sleep(2)
 
-        self.browser.find_element_by_xpath('/html/body/div[1]/form/div[4]/input').click()
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/div[1]/form/div[4]/input').click()
         time.sleep(4)
         
 # this tests if there is no input in the fields contact page
@@ -212,13 +215,13 @@ class TestContactPageNoInput(StaticLiveServerTestCase):
         self.browser.get(( '%s%s' % (self.live_server_url, '/contactUs')))
         time.sleep(3)
 
-        self.browser.find_element_by_xpath('/html/body/div[1]/form/div[1]/input').send_keys('')
-        self.browser.find_element_by_xpath('/html/body/div[1]/form/div[2]/input').send_keys('')
-        self.browser.find_element_by_xpath('/html/body/div[1]/form/div[3]/textarea').send_keys('')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/div[1]/form/div[1]/input').send_keys('')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/div[1]/form/div[2]/input').send_keys('')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/div[1]/form/div[3]/textarea').send_keys('')
 
         time.sleep(2)
 
-        self.browser.find_element_by_xpath('/html/body/div[1]/form/div[4]/input').click()
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/div[1]/form/div[4]/input').click()
         time.sleep(4)
 
 # This method tests invalid email input only contact page
@@ -233,13 +236,13 @@ class TestContactPageInvalidEmail(StaticLiveServerTestCase):
         self.browser.get(( '%s%s' % (self.live_server_url, '/contactUs')))
         time.sleep(3)
 
-        self.browser.find_element_by_xpath('/html/body/div[1]/form/div[1]/input').send_keys('John doe')
-        self.browser.find_element_by_xpath('/html/body/div[1]/form/div[2]/input').send_keys('bademail.com')
-        self.browser.find_element_by_xpath('/html/body/div[1]/form/div[3]/textarea').send_keys('test message')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/div[1]/form/div[1]/input').send_keys('John doe')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/div[1]/form/div[2]/input').send_keys('bademail.com')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/div[1]/form/div[3]/textarea').send_keys('test message')
 
         time.sleep(2)
 
-        self.browser.find_element_by_xpath('/html/body/div[1]/form/div[4]/input').click()
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/div[1]/form/div[4]/input').click()
         time.sleep(4)
 
 

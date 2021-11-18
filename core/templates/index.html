@@ -4,7 +4,7 @@
 
 <!-- TODO: Redo ALL of this landing page-->
 {% block content %}
-<div class="container">
+<!--<div class="container">
     <div class="row h-100">
         <div class="col-md-6">
             <div class="container" id="landingLeftContainer">
@@ -19,37 +19,18 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="container" id="landingRightContainer">
-                <!-- TODO: Login Form -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <input type="text" id="username_entry" placeholder="Username"></input>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <input type="text" placeholder="Password"></input>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8">
+    </div>
+</div> -->
+<h3>A Tool for Displaying and Tracking Syllabi.</h3>
+<p>Syllabus creation tool is a new tool for professors to engage their students to look at<br>
+    their syllabi. Professors will be able to post their syllabi into our database to be <br>
+    stored where students can access them through a drop down menu. The website will offer <br>
+    students to be able to select their current classes which will then take all the important dates <br>
+    and plot them on a calendar. The website will also offer a visual breakdown of the course’s grading policy. <br>
+    Syllabus creation tool will allow the users to be able to create accounts. Which will be a student and <br>
+    professor account with different permissions. Overall, this is a new tool so that students will actually<br>
+    look at the course syllabi since usually most students do not and this will provide them with information <br>
+    that they will care about.</p>
 
-                    </div>
-                    <div class="col-md-4">
-                        <button onlick="{% url 'student' %}" id="LoginButton">Login</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8">
 
-                    </div>
-                    <div class="col-md-4">
-                        <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- row -->
-</div> <!-- container -->
 {% endblock %}
