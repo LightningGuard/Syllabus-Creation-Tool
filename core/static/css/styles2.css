@@ -1,0 +1,116 @@
+body {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  background-color: #636466;
+}
+
+button {
+  width: 50px;
+  cursor: pointer;
+  box-shadow: 0px 0px 4px #fdb515;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: #fdb515;
+}
+
+#Title {
+  padding: 10px;
+  color: #fdb515;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#Title button {
+  background-color:#636466;
+}
+
+#holder {
+  width: 770px;
+}
+
+#days {
+  width: 100%;
+  display: flex;
+  color: #fdb515;
+}
+
+#days div {
+  width: 100px;
+  padding: 10px;
+}
+
+#calendar {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.day {
+  width: 100px;
+  padding: 10px;
+  height: 100px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: white;
+  margin: 5px;
+  box-shadow: 0px 0px 6px black;
+  overflow: auto;
+}
+
+.day:hover {
+  background-color: #636466;
+}
+
+.dontShow {
+  cursor: default;
+  background-color: #636466;
+  box-shadow: none;
+}
+
+#newModal, #editModal {
+  display: none;
+  z-index: 20;
+  padding: 25px;
+  background-color: white;
+  box-shadow: 0px 0px 3px black;
+  border-radius: 5px;
+  width: 350px;
+  top: 100px;
+  position: absolute;
+}
+
+#Add, #Exit, #Save, #Close {
+  background-color: #636466;
+}
+
+#eventText {
+  font-size: 14px;
+}
+
+#modal {
+  display: none;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0,0,0,.5);
+}
+
+.day + #currentDay {
+  border: 4px solid #fdb515;;
+}
+
+.assignmentPrint {
+  font-size: 12px;
+  padding: 3px;
+  background-color: teal;
+  color: white;
+  border-radius: 5px;
+  overflow: hidden;
+}
