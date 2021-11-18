@@ -2,8 +2,6 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
-
-
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
@@ -16,6 +14,9 @@ def student(request):
 def instructor(request):
     return render(request, 'instructor.html')
 
+def profile(request):
+    return render(request, "registration/profile.html")
+  
 def contactUs(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -416,5 +417,3 @@ def syllabusViewer(request):
 #will just redirect back to creatSyllabus but did not really use
 def addSyllabus(request):
     return HttpResponseRedirect(reverse('createSyllabus'))
-
-

@@ -3,6 +3,28 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 
 
+class Student(models.Model):
+    #sets type for student, null=True so that if it is not specified no error
+    first_name = models.CharField(max_length=200, null=True)
+    last_name = models.CharField(max_length=200, null=True)
+    email = models.CharField(max_length=200, null=True)
+    Student_ID = models.CharField(max_length=200,null=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
+
+class Instructor(models.Model):
+    #sets type for teacher, null=True so that if it is not specified no error
+    first_name = models.CharField(max_length=200, null=True)
+    last_name = models.CharField(max_length=200, null=True)
+    email = models.CharField(max_length=200, null=True)
+    Instructor_ID = models.CharField(max_length=200,null=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
+
 # Custom User class (extensible fields)
 class User(AbstractUser):
     pass
