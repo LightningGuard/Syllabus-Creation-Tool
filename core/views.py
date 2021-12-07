@@ -515,6 +515,7 @@ def syllabusPDF(request):
         Religious_Observances_Accommodations = request.POST.get('Religious_Observances_Accommodations')
         Hate_Bias_Discrimination_and_Harassment = request.POST.get('Hate_Bias_Discrimination_and_Harassment')
 
+
         counter = 0
         counter1 = 0
 
