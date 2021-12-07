@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.test import Client
 from django.urls import reverse,resolve
-from core.views import createSyllabus,syllabusViewer,dueDates
+from core.views import createSyllabus,syllabusViewer,dueDates,syllabusPDF
 from selenium import webdriver
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.test import LiveServerTestCase
@@ -81,6 +81,12 @@ class TestCalendarPage(TestCase):
         url = reverse('dueDates')
         self.assertEquals(resolve(url).func, dueDates)
 
+class TestPDFPage(TestCase):
+
+    def test_SyllabusViewerUrl(self):
+        url = reverse('syllabusPDF')
+        self.assertEquals(resolve(url).func, syllabusPDF)
+
 # will check if the button on the student page redirects them
 class TestCalendarPageLive(StaticLiveServerTestCase):
 
@@ -148,7 +154,9 @@ class TestSyllabusMakerPage(StaticLiveServerTestCase):
         self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[38]/input').send_keys('07/16,07/22,07/26,07/28')
         time.sleep(3)
 
-        self.browser.find_element_by_xpath('//html/body/center/div[2]/form/dev[46]/button').click()
+
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/button[1]').click()
+
 
         time.sleep(5)
 
@@ -186,7 +194,10 @@ class TestSyllabusBadInput(StaticLiveServerTestCase):
         self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[38]/input').send_keys('07/16,07/22,07/26,07/28')
         time.sleep(3)
 
-        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[46]/button').click()
+
+
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/button[1]').click()
+
 
         time.sleep(5)
 
@@ -290,7 +301,8 @@ class TestSyllabusMakerPageWithNewInput(StaticLiveServerTestCase):
         self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[45]/input').click()
         time.sleep(3)
 
-        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[46]/button').click()
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/button[1]').click()
+
         time.sleep(5)
 
 #will check if the functionality of the page works. Also, the 3rd day box is grey which means that it is being hovered
@@ -339,4 +351,44 @@ class TestCalendarFunctionality(StaticLiveServerTestCase):
 
         self.browser.find_element_by_xpath('/html/body/div[1]/div[1]/div[1]/button').click()
         time.sleep(3)
+
+
+class TestPDFPageLive(StaticLiveServerTestCase):
+
+
+    def setUp(self):
+        self.browser = webdriver.Chrome('core/chromedriver.exe')
+
+    def tearDown(self):
+        self.browser.close()
+
+
+    def test_work(self):
+        self.browser.get(('%s%s' % (self.live_server_url, '/createSyllabus')))
+        time.sleep(3)
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[2]/input').send_keys('FOUNDATIONS OF BIOLOGY II: ECOLOGY & EVOLUTION')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[4]/input').send_keys('BIOL 142')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[6]/input').send_keys('Tony Smith')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[8]/input').send_keys('randomemail@umbc.edu')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[10]/input').send_keys('Ite 203')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[12]/input').send_keys('M/W')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[14]/input').send_keys('2-3:15')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[16]/input').send_keys('Joseph Young,Zoe Morgan,Jennifer Gill')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[18]/input').send_keys('jyoung2@umbc.edu,mjenn10@umbc.edu,jgill2@umbc.edu')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[20]/input').send_keys('4-5:45')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[22]/input').send_keys('M/W')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[24]/input').send_keys('Natural Selection,Genetics,Speciation,Phylogeny')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[26]/input').send_keys('Biological Science 4th edition (volume 2), Scott Freeman, Prentice Hall Publishers')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[28]/input').send_keys('The goal of this course is to present an important series of topics in organismal biology ')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[30]/input').send_keys('Must complete MATH 150 or MATH 155 or MATH 151 with a C grade or better')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[32]/input').send_keys('Homework,Exam,Quiz')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[34]/input').send_keys('10%,60%,30%')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[36]/input').send_keys('Read chapter 1,Read chapter 2,Read chapter 3,Read chapter 4')
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[38]/input').send_keys('07/16,07/22,07/26,07/28')
+        time.sleep(3)
+
+        self.browser.find_element_by_xpath('/html/body/center/div[2]/form/button[2]').click()
+
+        time.sleep(5)
+
 

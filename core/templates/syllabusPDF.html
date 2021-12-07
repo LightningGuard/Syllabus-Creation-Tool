@@ -1,0 +1,319 @@
+{% load static %}
+<title>Syllabus Viewer - Syllabus Tool</title>
+
+<html>
+<head>
+</head>
+
+<body id="test">
+
+<!-- This will shift the text away from the left-hand side to be towards the center, and
+    it all make margin for text so that it will not go across the whole screen
+-->
+<style>
+
+</style>
+
+<div style="font-size:28px;">
+    <!-- Creates the Title
+    -->
+        <center>{{course_name}} - {{course_id}}</center>
+
+</div>
+
+<div style="color:#fdb515">
+    <hr>
+</div>
+
+<!-- This will make an instructor comment with the prof data they entered in on the other page
+-->
+<div class="indent_syllabus">
+    <p>Instructor: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;{{prof_name}}, &emsp; Email:
+    {{prof_email}}<p>
+
+</div>
+
+<!-- This is used to space out the text and will use this often
+-->
+
+
+<!-- This will make a schedule comment with class data they entered in on the other page
+-->
+<div class="indent_syllabus">
+   <p> Lecture Schedule: &emsp;&emsp;&emsp;&emsp;&ensp;{{meeting_days}}, {{meeting_times}}<p>
+</div>
+
+
+
+
+<!-- This will make a comment with ta data they entered in on the other page
+-->
+<div class="indent_syllabus">
+    Teaching Assistant:
+</div>
+
+<!-- read each index in the list and write each thing down with a dot for ordering/appearance
+-->
+<div class="indent_syllabus1">
+
+    {% for name in ta_info %}
+    <li>{{ name }}
+        {% endfor %}
+
+</div>
+
+<p></p>
+<!-- will just make a comment with name listed and record the data the user entered on the other page
+-->
+<div class="indent_syllabus">
+
+    Office Hours Info: &ensp;&emsp;&emsp;&emsp;&ensp;&ensp;{{instructor_office}}, &emsp; {{instructor_days}},
+    &emsp; {{instructor_hours}}
+
+</div>
+
+
+<p></p>
+<!-- will just make a comment with name listed for organization
+-->
+<div class="indent_syllabus">
+    Course Pre-Req :
+</div>
+
+<!-- This is used so i can wrap the text. So info is not unorganized
+-->
+<div class="indent_syllabus1">
+    {{course_pre_req}}
+</div>
+
+
+<p></p>
+<!-- will just make a comment with name listed for organization
+-->
+<div class="indent_syllabus">
+    Need Materials :
+</div>
+
+<!-- This is used so i can wrap the text. So info is not unorganized
+-->
+<div class="indent_syllabus1">
+    {{course_requirements}}
+</div>
+
+
+<p></p>
+<!-- will just make a comment with name listed for organization
+-->
+<div class="indent_syllabus">
+    Course Description :
+</div>
+
+<!-- This is used so i can wrap the text. So info is not unorganized
+-->
+<div class="indent_syllabus1">
+    {{course_description}}
+</div>
+
+
+<p></p>
+<!-- will just make a comment with name listed for organization
+-->
+<div class="indent_syllabus">
+    Course Topics:
+</div>
+
+<!-- read each index in the list and write each thing down with a dot for ordering/appearance
+-->
+<div class="indent_syllabus1">
+
+   {% for name2 in course_topics %}
+    <li>{{ name2 }}
+        {% endfor %}
+
+</div>
+
+
+<p></p>
+<!-- will just make a comment with name listed for organization
+-->
+<div class="indent_syllabus">
+    Grading Distribution :
+</div>
+
+<!-- read each index in the list and write each thing down with a dot for ordering/appearance
+-->
+<div class="indent_syllabus1">
+    {% for name3 in grading %}
+    <li>{{ name3 }}
+        {% endfor %}
+</div>
+
+<p></p>
+<!-- will just make a comment with name listed for organization
+-->
+<div class="indent_syllabus">
+    Assignments/Due dates :
+</div>
+
+<!-- read each index in the list and write each thing down with a dot for ordering/appearance
+-->
+<div class="indent_syllabus1">
+    {% for name4 in course_work %}
+    <li>{{ name4 }}
+        {% endfor %}
+</div>
+
+<p></p>
+<div class="indent_syllabus">
+    <p>Student Academic Integrity :</p>
+</div>
+
+<div class="indent_syllabus1">
+&emsp;&emsp;By enrolling in this course, each student assumes the responsibilities of an active participant in UMBC’s scholarly
+community in which everyone’s academic work and behavior are held to the highest standards of honesty.
+Cheating, fabrication, plagiarism, and helping others to commit these acts are all forms of academic dishonesty, and they are wrong.
+Academic misconduct could result in disciplinary action that may include, but is not limited to, suspension or dismissal.
+To read the full Student Academic Conduct Policy, consult the Academic Integrity Resources for Students page,
+the Faculty Handbook (Sections 14.2-14.3), or for graduate courses, the <a href="https://gradschool.umbc.edu/" style="color: #fdb515">Graduate School </a> website.
+</div>
+
+
+<div class="indent_syllabus">
+    <p>Accessibility and Disability Accommodations, Guidance and Resources :</p>
+</div>
+
+
+<div class="indent_syllabus1">
+&emsp;&emsp;Accommodations for students with disabilities are provided for all students with a qualified disability under
+the Americans with Disabilities Act (ADA & ADAAA) and Section 504 of the Rehabilitation Act who request and are
+eligible for accommodations. The Office of Student Disability Services (SDS) is the UMBC department designated to
+coordinate accommodations that creates equal access for students when barriers to participation exist in
+University courses, programs, or activities.
+
+If you have a documented disability and need to request academic accommodations in your courses,
+please refer to the SDS website at <a href="https://sds.umbc.edu/" style="color: #fdb515">sds.umbc.edu</a>
+for registration information and office procedures.
+
+SDS email: disAbility@umbc.edu
+
+SDS phone: 410-455-2459
+
+If you will be using SDS approved accommodations in this class, please contact the instructor to discuss implementation
+of the accommodations. During remote instruction requirements due to COVID, communication and flexibility will be essential for success.
+</div>
+
+</div>
+
+<div class="indent_syllabus">
+    <p>Title IX Resources:</p>
+</div>
+
+
+<div class="indent_syllabus1">
+&emsp;&emsp;<a href="https://oei.umbc.edu/gender-discrimination-sexual-misconduct/" style="color: #fdb515">&emsp;&emsp;UMBC Policy</a> and Federal law (Title IX) prohibit discrimination and harassment on the basis of sex, sexual orientation,
+and gender identity in University programs and activities. Any student who is impacted by sexual harassment,
+sexual assault, domestic violence, dating violence, stalking, sexual exploitation, gender discrimination,
+pregnancy discrimination, gender-based harassment or retaliation should contact the <a href="https://oei.umbc.edu/title-ix-coordinator/" style="color: #fdb515">University’s Title IX
+Coordinator</a> to make a report and/or access support and resources:
+
+Ariana Arnold, Title IX Coordinator
+
+410-455-2735 (direct line), TitleIXCoordinator@umbc.edu
+
+You can access support and resources even if you do not want to take any further action.
+You will not be forced to file a formal complaint or police report. Please be aware that the University may take
+action on its own if essential to protect the safety of the community.
+
+If you are interested in or thinking about making a report, please use the
+<a href="https://umbc-advocate.symplicity.com/titleix_report/index.php/pid049529?" style="color: #fdb515"> Online Reporting/Referral Form</a>.
+Please note that, if you report anonymously,  the University’s ability to respond will be limited.
+
+</div>
+
+    {% if Pregnant_and_Parenting_Students == True %}
+
+
+        <div class="indent_syllabus">
+
+        <p>Pregnant and Parenting Students Resources:</p>
+
+        </div>
+
+        <div class="indent_syllabus1">
+
+            &emsp;&emsp;UMBC’s <a href="https://oei.umbc.edu/policy-on-sexual-misconduct-sexual-harassment-and-gender-discrimination/" style="color: #fdb515">Policy on Sexual Misconduct, Sexual Harassment and Gender Discrimination </a>
+            expressly prohibits all forms of Discrimination and Harassment on the basis of sex, including pregnancy.
+            <a href="https://oei.umbc.edu/students/" style="color: #fdb515">Resources for pregnant, parenting and breastfeeding students </a>are available through the University’s
+            Office of Equity and Inclusion.  Pregnant and parenting students are encouraged to contact the Title
+            IX Coordinator to discuss plans and ensure ongoing access to their academic program with respect to a leave
+            of absence or return following leave related to pregnancy, delivery, adoption, breastfeeding and/or the
+            early months of parenting.
+
+            Pregnant students and students in the early months of parenting may be entitled to accommodations under Title IX through the Office of Equity and Inclusion.
+
+            In addition, students who are pregnant and have an impairment related to their pregnancy that qualifies
+            as disability under the ADA may be entitled to accommodations through the
+            <a href="https://sds.umbc.edu/accommodations/registering-with-sds/" style="color: #fdb515" >Student Disability Service Office.</a>
+
+        </div>
+    {% endif %}
+
+    {% if Religious_Observances_Accommodations == True %}
+
+
+        <div class="indent_syllabus">
+
+        <p>Religious Observances & Accommodations Resources:</p>
+
+        </div>
+
+        <div class="indent_syllabus1">
+
+        &emsp;&emsp;UMBC <a href="https://provost.umbc.edu/files/2021/08/Religious-Observance-Academic-Policy-2021_22.pdf" style="color: #fdb515" >Policy </a>
+        provides that students should not be penalized because of observances of their religious beliefs,
+        and that students shall be given an opportunity, whenever feasible, to make up within a reasonable time any
+        academic assignment that is missed due to individual participation in religious observances.
+        It is the responsibility of the student to inform the instructor of any intended absences or requested
+        modifications for religious observances in advance, and as early as possible. For questions or guidance
+        regarding religious observance accommodations  please contact the Office of Equity and Inclusion at oei@umbc.edu.
+
+        </div>
+    {% endif %}
+
+    {% if Hate_Bias_Discrimination_and_Harassment == True %}
+
+
+        <div class="indent_syllabus">
+
+        <p>Hate, Bias, Discrimination and Harassment Resources:</p>
+
+        </div>
+
+        <div class="indent_syllabus1">
+
+            &emsp;&emsp;UMBC values safety, cultural and ethnic diversity, social responsibility, lifelong learning, equity, and civic engagement.
+
+            Consistent with these principles, <a href="https://oei.umbc.edu/discrimination-and-bias/" style="color: #fdb515" >UMBC Policy </a>
+            prohibits discrimination and harassment in its educational
+            programs and activities or with respect to employment terms and conditions based on race, creed, color,
+            religion, sex, gender, pregnancy, ancestry, age, gender identity or expression, national origin, veterans
+            status, marital status, sexual orientation, physical or mental disability, or genetic information.
+
+            Students (and faculty and staff) who experience discrimination, harassment, hate or bias or who have such
+            matters reported to them should use the <a href="https://umbc-advocate.symplicity.com/titleix_report/index.php/pid345923?" style="color: #fdb515" >online reporting/referral form </a>
+            to report discrimination, hate or
+            bias incidents. You may report incidents that happen to you anonymously. Please note that, if you report
+            anonymously, the University’s ability to respond will be limited.
+
+        </div>
+    {% endif %}
+
+<button onclick="generatePDF()">Convert To PDF</button>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="{% static 'javascript/pdf.js' %}"></script>
+</html>
