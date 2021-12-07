@@ -1,62 +1,52 @@
-
-
+{% load static %}
 <title>Syllabus Viewer - Syllabus Tool</title>
-
 
 <html>
 <head>
 </head>
-<body>
+
+<body id="test">
 
 <!-- This will shift the text away from the left-hand side to be towards the center, and
     it all make margin for text so that it will not go across the whole screen
 -->
 <style>
 
-    .indent_syllabus {
-        margin-left: 400px;
-    }
-
-    .indent_syllabus1 {
-        margin-left: 600px;
-        width: 750px;
-    }
-
 </style>
 
-<div>
+<div style="font-size:28px;">
     <!-- Creates the Title
     -->
-    <h3>
         <center>{{course_name}} - {{course_id}}</center>
-    </h3>
+
 </div>
 
-<div>
+<div style="color:#fdb515">
     <hr>
 </div>
 
 <!-- This will make an instructor comment with the prof data they entered in on the other page
 -->
 <div class="indent_syllabus">
-    Instructor: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;{{prof_name}}, &emsp; Email:
-    {{prof_email}}</br>
+    <p>Instructor: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;{{prof_name}}, &emsp; Email:
+    {{prof_email}}<p>
+
 </div>
 
 <!-- This is used to space out the text and will use this often
 -->
-</br>
+
 
 <!-- This will make a schedule comment with class data they entered in on the other page
 -->
 <div class="indent_syllabus">
-    Lecture Schedule: &emsp;&emsp;&emsp;&emsp;&ensp;{{meeting_days}}, {{meeting_times}}
+   <p> Lecture Schedule: &emsp;&emsp;&emsp;&emsp;&ensp;{{meeting_days}}, {{meeting_times}}<p>
 </div>
 
-</br>
 
 
-<!-- This will make a  comment with ta data they entered in on the other page
+
+<!-- This will make a comment with ta data they entered in on the other page
 -->
 <div class="indent_syllabus">
     Teaching Assistant:
@@ -72,9 +62,7 @@
 
 </div>
 
-
-</br>
-
+<p></p>
 <!-- will just make a comment with name listed and record the data the user entered on the other page
 -->
 <div class="indent_syllabus">
@@ -84,8 +72,8 @@
 
 </div>
 
-</br>
 
+<p></p>
 <!-- will just make a comment with name listed for organization
 -->
 <div class="indent_syllabus">
@@ -98,8 +86,8 @@
     {{course_pre_req}}
 </div>
 
-</br>
 
+<p></p>
 <!-- will just make a comment with name listed for organization
 -->
 <div class="indent_syllabus">
@@ -112,8 +100,8 @@
     {{course_requirements}}
 </div>
 
-</br>
 
+<p></p>
 <!-- will just make a comment with name listed for organization
 -->
 <div class="indent_syllabus">
@@ -126,26 +114,26 @@
     {{course_description}}
 </div>
 
-</br>
 
+<p></p>
 <!-- will just make a comment with name listed for organization
 -->
 <div class="indent_syllabus">
-    Course Work:
+    Course Topics:
 </div>
 
 <!-- read each index in the list and write each thing down with a dot for ordering/appearance
 -->
 <div class="indent_syllabus1">
 
-    {% for name2 in course_topics %}
+   {% for name2 in course_topics %}
     <li>{{ name2 }}
         {% endfor %}
 
 </div>
 
-</br>
 
+<p></p>
 <!-- will just make a comment with name listed for organization
 -->
 <div class="indent_syllabus">
@@ -160,40 +148,11 @@
         {% endfor %}
 </div>
 
-
-<div class="indent_syllabus1">
-                <h4>Course Work Visualization (100%)</h4>
-                 <div style="width: 750px; height:35px; background-color: #ddd;border: 2px solid black;">
-
-                     <div  title="{{courseWork.0}} {{grades.0}}" style="width: {{grades.0}}; background-color: #04AA6D; text-align:center;height:35px; float:left;">{{courseWork.0}}<br>{{grades.0}}</div>
-                     <div  title="{{courseWork.1}} {{grades.1}}" style="width: {{grades.1}}; background-color: #2196F3; text-align:center;height:35px; float:left;">{{courseWork.1}}<br>{{grades.1}}</div>
-                     <div  title="{{courseWork.2}} {{grades.2}}" style="width: {{grades.2}}; background-color: #f44336; text-align:center;height:35px; float:left;">{{courseWork.2}}<br>{{grades.2}}</div>
-                     <div  title="{{courseWork.3}} {{grades.3}}" style="width: {{grades.3}}; background-color: #F3F321; text-align:center;height:35px; float:left;">{{courseWork.3}}<br>{{grades.3}}</div>
-                     <div  title="{{courseWork.4}} {{grades.4}}" style="width: {{grades.4}}; background-color: #1737FE; text-align:center;height:35px; float:left;">{{courseWork.4}}<br>{{grades.4}}</div>
-                     <div  title="{{courseWork.5}} {{grades.5}}" style="width: {{grades.5}}; background-color: #FF4CEC; text-align:center;height:35px; float:left;">{{courseWork.5}}<br>{{grades.5}}</div>
-                     <div  title="{{courseWork.6}} {{grades.6}}" style="width: {{grades.6}}; background-color: #674CFF; text-align:center;height:35px; float:left;">{{courseWork.6}}<br>{{grades.6}}</div>
-                     <div  title="{{courseWork.7}} {{grades.7}}" style="width: {{grades.7}}; background-color: #FFB04C; text-align:center;height:35px; float:left;">{{courseWork.7}}<br>{{grades.7}}</div>
-                     <div  title="{{courseWork.8}} {{grades.8}}" style="width: {{grades.8}}; background-color: #4CFF98; text-align:center;height:35px; float:left;">{{courseWork.8}}<br>{{grades.8}}</div>
-                     <div  title="{{courseWork.9}} {{grades.9}}" style="width: {{grades.9}}; background-color: #FE1717; text-align:center;height:35px; float:left;">{{courseWork.9}}<br>{{grades.9}}</div>
-                     <div  title="{{courseWork.10}} {{grades.10}}" style="width: {{grades.10}}; background-color: red; text-align:center;height:35px; float:left;">{{courseWork.10}}<br>{{grades.10}}</div>
-                     <div  title="{{courseWork.11}} {{grades.11}}" style="width: {{grades.11}}; background-color: orange; text-align:center;height:35px; float:left;">{{courseWork.11}}<br>{{grades.11}}</div>
-                     <div  title="{{courseWork.12}} {{grades.12}}" style="width: {{grades.12}}; background-color: yellow; text-align:center;height:35px; float:left;">{{courseWork.12}}<br>{{grades.12}}</div>
-                     <div  title="{{courseWork.13}} {{grades.13}}" style="width: {{grades.13}}; background-color: green; text-align:center;height:35px; float:left;">{{courseWork.13}}<br>{{grades.13}}</div>
-                     <div  title="{{courseWork.14}} {{grades.14}}" style="width: {{grades.14}}; background-color: blue; text-align:center;height:35px; float:left;">{{courseWork.14}}<br>{{grades.14}}</div>
-                     <div  title="{{courseWork.15}} {{grades.15}}" style="width: {{grades.15}}; background-color: purple; text-align:center;height:35px; float:left;">{{courseWork.15}}<br>{{grades.15}}</div>
-                     <div  title="{{courseWork.16}} {{grades.16}}" style="width: {{grades.16}}; background-color: pink; text-align:center;height:35px; float:left;">{{courseWork.16}}<br>{{grades.16}}</div>
-                     <div  title="{{courseWork.17}} {{grades.17}}" style="width: {{grades.17}}; background-color: red; text-align:center;height:35px; float:left;">{{courseWork.17}}<br>{{grades.17}}</div>
-                 </div>
-        <p style="font-size: 12px;">If you can't read what is written in the bar, try hovering the text!</p>
-</div>
-
-
-</br>
-
+<p></p>
 <!-- will just make a comment with name listed for organization
 -->
 <div class="indent_syllabus">
-    Assignments and their Due dates :
+    Assignments/Due dates :
 </div>
 
 <!-- read each index in the list and write each thing down with a dot for ordering/appearance
@@ -204,57 +163,40 @@
         {% endfor %}
 </div>
 
-</br>
-
+<p></p>
 <div class="indent_syllabus">
-    Student Academic Integrity :
+    <p>Student Academic Integrity :</p>
 </div>
 
-</br>
-
 <div class="indent_syllabus1">
-    By enrolling in this course, each student assumes the responsibilities of an active participant in UMBC’s scholarly
+&emsp;&emsp;By enrolling in this course, each student assumes the responsibilities of an active participant in UMBC’s scholarly
 community in which everyone’s academic work and behavior are held to the highest standards of honesty.
 Cheating, fabrication, plagiarism, and helping others to commit these acts are all forms of academic dishonesty, and they are wrong.
 Academic misconduct could result in disciplinary action that may include, but is not limited to, suspension or dismissal.
 To read the full Student Academic Conduct Policy, consult the Academic Integrity Resources for Students page,
-the Faculty Handbook (Sections 14.2-14.3), or for graduate courses, the <a href="https://gradschool.umbc.edu/" style="color: yellow">Graduate School </a> website.
+the Faculty Handbook (Sections 14.2-14.3), or for graduate courses, the <a href="https://gradschool.umbc.edu/" style="color: #fdb515">Graduate School </a> website.
 </div>
 
-</br>
 
 <div class="indent_syllabus">
-    Accessibility and Disability Accommodations, Guidance and Resources :
+    <p>Accessibility and Disability Accommodations, Guidance and Resources :</p>
 </div>
 
-</br>
 
 <div class="indent_syllabus1">
-Accommodations for students with disabilities are provided for all students with a qualified disability under
+&emsp;&emsp;Accommodations for students with disabilities are provided for all students with a qualified disability under
 the Americans with Disabilities Act (ADA & ADAAA) and Section 504 of the Rehabilitation Act who request and are
 eligible for accommodations. The Office of Student Disability Services (SDS) is the UMBC department designated to
 coordinate accommodations that creates equal access for students when barriers to participation exist in
 University courses, programs, or activities.
 
-    </br>
-    </br>
-
 If you have a documented disability and need to request academic accommodations in your courses,
-please refer to the SDS website at <a href="https://sds.umbc.edu/" style="color: yellow">sds.umbc.edu</a>
+please refer to the SDS website at <a href="https://sds.umbc.edu/" style="color: #fdb515">sds.umbc.edu</a>
 for registration information and office procedures.
-
-    </br>
-    </br>
 
 SDS email: disAbility@umbc.edu
 
-    </br>
-    </br>
-
 SDS phone: 410-455-2459
-
-    </br>
-    </br>
 
 If you will be using SDS approved accommodations in this class, please contact the instructor to discuss implementation
 of the accommodations. During remote instruction requirements due to COVID, communication and flexibility will be essential for success.
@@ -263,96 +205,71 @@ of the accommodations. During remote instruction requirements due to COVID, comm
 </div>
 
 <div class="indent_syllabus">
-    Title IX Resources:
+    <p>Title IX Resources:</p>
 </div>
 
-</br>
 
 <div class="indent_syllabus1">
-<a href="https://oei.umbc.edu/gender-discrimination-sexual-misconduct/" style="color: yellow">UMBC Policy</a> and
-    Federal law (Title IX) prohibit discrimination and harassment on the basis of sex, sexual orientation,
+&emsp;&emsp;<a href="https://oei.umbc.edu/gender-discrimination-sexual-misconduct/" style="color: #fdb515">&emsp;&emsp;UMBC Policy</a> and Federal law (Title IX) prohibit discrimination and harassment on the basis of sex, sexual orientation,
 and gender identity in University programs and activities. Any student who is impacted by sexual harassment,
 sexual assault, domestic violence, dating violence, stalking, sexual exploitation, gender discrimination,
-pregnancy discrimination, gender-based harassment or retaliation should contact the <a href="https://oei.umbc.edu/title-ix-coordinator/" style="color: yellow">University’s Title IX
+pregnancy discrimination, gender-based harassment or retaliation should contact the <a href="https://oei.umbc.edu/title-ix-coordinator/" style="color: #fdb515">University’s Title IX
 Coordinator</a> to make a report and/or access support and resources:
-
-    </br>
-    </br>
 
 Ariana Arnold, Title IX Coordinator
 
-    </br>
-    </br>
-
 410-455-2735 (direct line), TitleIXCoordinator@umbc.edu
-
-    </br>
-    </br>
 
 You can access support and resources even if you do not want to take any further action.
 You will not be forced to file a formal complaint or police report. Please be aware that the University may take
 action on its own if essential to protect the safety of the community.
 
-    </br>
-    </br>
-
 If you are interested in or thinking about making a report, please use the
-<a href="https://umbc-advocate.symplicity.com/titleix_report/index.php/pid122895?" style="color: yellow">Online Reporting/Referral Form</a>.
+<a href="https://umbc-advocate.symplicity.com/titleix_report/index.php/pid049529?" style="color: #fdb515"> Online Reporting/Referral Form</a>.
 Please note that, if you report anonymously,  the University’s ability to respond will be limited.
 
 </div>
 
     {% if Pregnant_and_Parenting_Students == True %}
-         </br>
+
 
         <div class="indent_syllabus">
 
-        Pregnant and Parenting Students Resources:
+        <p>Pregnant and Parenting Students Resources:</p>
 
         </div>
 
-        </br>
-
         <div class="indent_syllabus1">
 
-            UMBC’s <a href="https://oei.umbc.edu/policy-on-sexual-misconduct-sexual-harassment-and-gender-discrimination/" style="color: yellow">Policy on Sexual Misconduct, Sexual Harassment and Gender Discrimination </a>
+            &emsp;&emsp;UMBC’s <a href="https://oei.umbc.edu/policy-on-sexual-misconduct-sexual-harassment-and-gender-discrimination/" style="color: #fdb515">Policy on Sexual Misconduct, Sexual Harassment and Gender Discrimination </a>
             expressly prohibits all forms of Discrimination and Harassment on the basis of sex, including pregnancy.
-            <a href="https://oei.umbc.edu/students/" style="color: yellow">Resources for pregnant, parenting and breastfeeding students </a>are available through the University’s
+            <a href="https://oei.umbc.edu/students/" style="color: #fdb515">Resources for pregnant, parenting and breastfeeding students </a>are available through the University’s
             Office of Equity and Inclusion.  Pregnant and parenting students are encouraged to contact the Title
             IX Coordinator to discuss plans and ensure ongoing access to their academic program with respect to a leave
             of absence or return following leave related to pregnancy, delivery, adoption, breastfeeding and/or the
             early months of parenting.
 
-            </br>
-            </br>
-
             Pregnant students and students in the early months of parenting may be entitled to accommodations under Title IX through the Office of Equity and Inclusion.
-
-            </br>
-            </br>
 
             In addition, students who are pregnant and have an impairment related to their pregnancy that qualifies
             as disability under the ADA may be entitled to accommodations through the
-            <a href="https://sds.umbc.edu/accommodations/registering-with-sds/" style="color: yellow" >Student Disability Service Office.</a>
+            <a href="https://sds.umbc.edu/accommodations/registering-with-sds/" style="color: #fdb515" >Student Disability Service Office.</a>
 
         </div>
     {% endif %}
 
-
     {% if Religious_Observances_Accommodations == True %}
-         </br>
+
 
         <div class="indent_syllabus">
 
-        Religious Observances & Accommodations Resources:
+        <p>Religious Observances & Accommodations Resources:</p>
 
         </div>
 
-        </br>
-
         <div class="indent_syllabus1">
 
-        UMBC <a href="https://provost.umbc.edu/files/2021/08/Religious-Observance-Academic-Policy-2021_22.pdf" style="color: yellow" >Policy </a>
+        &emsp;&emsp;UMBC <a href="https://provost.umbc.edu/files/2021/08/Religious-Observance-Academic-Policy-2021_22.pdf" style="color: #fdb515" >Policy </a>
         provides that students should not be penalized because of observances of their religious beliefs,
         and that students shall be given an opportunity, whenever feasible, to make up within a reasonable time any
         academic assignment that is missed due to individual participation in religious observances.
@@ -363,36 +280,27 @@ Please note that, if you report anonymously,  the University’s ability to resp
         </div>
     {% endif %}
 
-
     {% if Hate_Bias_Discrimination_and_Harassment == True %}
-         </br>
+
 
         <div class="indent_syllabus">
 
-        Hate, Bias, Discrimination and Harassment Resources:
+        <p>Hate, Bias, Discrimination and Harassment Resources:</p>
 
         </div>
 
-        </br>
-
         <div class="indent_syllabus1">
 
-            UMBC values safety, cultural and ethnic diversity, social responsibility, lifelong learning, equity, and civic engagement.
+            &emsp;&emsp;UMBC values safety, cultural and ethnic diversity, social responsibility, lifelong learning, equity, and civic engagement.
 
-            </br>
-            </br>
-
-            Consistent with these principles, <a href="https://oei.umbc.edu/discrimination-and-bias/" style="color: yellow" >UMBC Policy </a>
+            Consistent with these principles, <a href="https://oei.umbc.edu/discrimination-and-bias/" style="color: #fdb515" >UMBC Policy </a>
             prohibits discrimination and harassment in its educational
             programs and activities or with respect to employment terms and conditions based on race, creed, color,
             religion, sex, gender, pregnancy, ancestry, age, gender identity or expression, national origin, veterans
             status, marital status, sexual orientation, physical or mental disability, or genetic information.
 
-            </br>
-            </br>
-
             Students (and faculty and staff) who experience discrimination, harassment, hate or bias or who have such
-            matters reported to them should use the <a href="https://umbc-advocate.symplicity.com/titleix_report/index.php/pid345923?" style="color: yellow" >online reporting/referral form </a>
+            matters reported to them should use the <a href="https://umbc-advocate.symplicity.com/titleix_report/index.php/pid345923?" style="color: #fdb515" >online reporting/referral form </a>
             to report discrimination, hate or
             bias incidents. You may report incidents that happen to you anonymously. Please note that, if you report
             anonymously, the University’s ability to respond will be limited.
@@ -400,11 +308,12 @@ Please note that, if you report anonymously,  the University’s ability to resp
         </div>
     {% endif %}
 
-</br>
-</br>
-</br>
-
-
+<button onclick="generatePDF()">Convert To PDF</button>
 
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="{% static 'javascript/pdf.js' %}"></script>
 </html>

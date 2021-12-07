@@ -18,7 +18,6 @@
             tab-size: 8;
         }
 
-
     </style>
 
 </head>
@@ -26,14 +25,14 @@
 
     <hr>
 
-    <form action="{% url 'syllabusViewer' %}" method="post">
+    <form action="{% url 'syllabusPDF'%}" method="post">
     {% csrf_token %}
         <dev class="indent_syllabus">
             Course Name: {% if course_name_empty %}  <span style="color: #ff0000"> Empty </span> {% endif %}</br>
         </dev>
 
         <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="course_name"> </br>
+            <input type="text" style = width:350px;" name="course_name" value="{{course_name}}"> </br>
         </dev>
 
         <dev class="indent_syllabus">
@@ -41,7 +40,7 @@
          </dev>
 
         <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="course_id"> </br>
+            <input type="text" style = width:350px;" name="course_id" value="{{course_id}}"> </br>
         </dev>
 
         <dev class="indent_syllabus">
@@ -49,7 +48,7 @@
         </dev>
 
         <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="prof_name"> </br>
+            <input type="text" style = width:350px;" name="prof_name" value="{{prof_name}}"> </br>
         </dev>
 
         <dev class="indent_syllabus">
@@ -58,7 +57,7 @@
         </dev>
 
         <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="prof_email"></br>
+            <input type="text" style = width:350px;" name="prof_email" value="{{prof_email}}"></br>
         </dev>
 
         <dev class="indent_syllabus">
@@ -66,24 +65,24 @@
         </dev>
 
         <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="prof_office"></br>
+            <input type="text" style = width:350px;" name="prof_office" value="{{instructor_office}}"></br>
         </dev>
 
         <dev class="indent_syllabus">
-            Office Days (/): {% if instructor_days_empty %} <span style="color: #ff0000"> Empty </span> {% endif %}</br>
+            Office Days (use /. M/W): {% if instructor_days_empty %} <span style="color: #ff0000"> Empty </span> {% endif %}</br>
         </dev>
 
         <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="office_day"></br>
+            <input type="text" style = width:350px;" name="office_day" value="{{instructor_days}}"></br>
         </dev>
 
         <dev class="indent_syllabus">
-            Office Hours (-):{% if instructor_hours_empty %} <span style="color: #ff0000"> Empty </span>
+            Office Hours (use -. 4-4:30):{% if instructor_hours_empty %} <span style="color: #ff0000"> Empty </span>
             {% elif instructor_hours_invalid %} <span style="color: #ff0000"> invalid didnt have - </span> {% endif %}</br>
         </dev>
 
         <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="office_hours"></br>
+            <input type="text" style = width:350px;" name="office_hours" value="{{instructor_hours}}"></br>
         </dev>
 
         <dev class="indent_syllabus">
@@ -92,7 +91,7 @@
         </dev>
 
         <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="ta_names"></br>
+            <input type="text" style = width:350px;" name="ta_names" value="{{ta_names2}}"></br>
 
         </dev>
 
@@ -103,25 +102,25 @@
         </dev>
 
         <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="ta_emails"></br>
+            <input type="text" style = width:350px;" name="ta_emails" value="{{ta_emails2}}"> </br>
 
         </dev>
 
         <dev class="indent_syllabus">
-            Meeting Time (use -):{% if meeting_times_empty %} <span style="color: #ff0000"> Empty </span>
+            Meeting Time (use -. 4-4:30):{% if meeting_times_empty %} <span style="color: #ff0000"> Empty </span>
             {% elif meeting_times_invalid %} <span style="color: #ff0000"> invalid didnt use - </span> {% endif %}</br>
         </dev>
 
         <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="class_time"></br>
+            <input type="text" style = width:350px;" name="class_time" value="{{meeting_times}}"></br>
         </dev>
 
         <dev class="indent_syllabus">
-            Meeting Days (use /): {% if meeting_days_empty %} <span style="color: #ff0000"> Empty </span> {% endif %}</br>
+            Meeting Days (use /. M/W): {% if meeting_days_empty %} <span style="color: #ff0000"> Empty </span> {% endif %}</br>
         </dev>
 
         <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="class_days"></br>
+            <input type="text" style = width:350px;" name="class_days" value="{{meeting_days}}"></br>
         </dev>
 
         <dev class="indent_syllabus">
@@ -129,7 +128,7 @@
         </dev>
 
         <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="course_topics"></br>
+            <input type="text" style = width:350px;" name="course_topics" value="{{course_topics2}}"></br>
         </dev>
 
        <dev class="indent_syllabus">
@@ -137,7 +136,7 @@
        </dev>
 
        <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="materials"></br>
+            <input type="text" style = width:350px;" name="materials" value="{{course_requirements}}"></br>
        </dev>
 
       <dev class="indent_syllabus">
@@ -145,7 +144,7 @@
       </dev>
 
       <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="course_description"></br>
+            <input type="text" style = width:350px;" name="course_description" value="{{course_description}}"></br>
       </dev>
 
       <dev class="indent_syllabus">
@@ -153,46 +152,46 @@
       </dev>
 
       <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="course_pre_req"></br>
+            <input type="text" style = width:350px;" name="course_pre_req" value="{{course_pre_req}}"></br>
 
       </dev>
 
       <dev class="indent_syllabus">
-            Assignment Type(use , to split types):{% if grading_type_empty %} <span style="color: #ff0000"> Empty </span>
+            <span style="color: green">Assignments Types(use , to split types. Homework,Quizzes):</span>{% if grading_type_empty %} <span style="color: #ff0000"> Empty </span>
             {% elif  grading_type_more %} <span style="color: #ff0000"> invalid has more grade types than values - </span> {% endif %}</br>
       </dev>
 
       <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="grading_type"></br>
+            <input type="text" style = width:350px;" name="grading_type"value="{{grading_type}}"></br>
       </dev>
 
       <dev class="indent_syllabus">
-            Grade Value (use %, to split values): {% if grading_value_empty %} <span style="color: #ff0000"> Empty </span>
+            <span style="color: green">Assignment Weights (use %, to split values):</span> {% if grading_value_empty %} <span style="color: #ff0000"> Empty </span>
             {% elif  grading_value_more %} <span style="color: #ff0000"> invalid has more grade values than types - </span> {% endif %}</br>
       </dev>
 
       <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="grading_value"></br>
+            <input type="text" style = width:350px;" name="grading_value"value="{{grading_value}}"></br>
       </dev>
 
       <dev class="indent_syllabus">
-            Assignments (use %, to split Assignments):{% if work_empty %} <span style="color: #ff0000"> Empty </span>
+            <span style="color: blue">Individual Assignments (use , to split Assignments. Read chapter1):</span>{% if work_empty %} <span style="color: #ff0000"> Empty </span>
              {% elif  work_more %} <span style="color: #ff0000"> invalid has more assignments than dates - </span> {% endif %}</br>
       </dev>
 
       <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="work"></br>
+            <input type="text" style = width:350px;" name="work" value="{{work}}"></br>
 
       </dev>
 
       <dev class="indent_syllabus">
-            Due Dates(mm/dd use , to split dates): {% if assignment_dates_empty %} <span style="color: #ff0000"> Empty </span>
+            <span style="color: blue">Due Dates For Assignments(mm/dd use , to split dates): </span>{% if assignment_dates_empty %} <span style="color: #ff0000"> Empty </span>
             {% elif assignment_dates_invalid %} <span style="color: #ff0000"> invalid did use / </span>
             {% elif  assignment_dates_more %} <span style="color: #ff0000"> invalid has more dates than assignments - </span> {% endif %}</br>
       </dev>
 
       <dev class="indent_syllabus">
-            <input type="text" style = width:350px;" name="due_dates"></br>
+            <input type="text" style = width:350px;" name="due_dates" value="{{assignment_dates}}"></br>
       </dev>
 
     <dev class="indent_syllabus">
@@ -236,9 +235,15 @@
         </br>
         </br>
 
-    <dev class="indent_syllabus2">
-        <button type="submit">Submit</button>
-    </dev>
+
+    <form action="{% url 'syllabusViewer' %}">
+        {% csrf_token %}
+        <button type="submit" formaction="{% url 'syllabusViewer' %}">Make a Syllabus</button>
+
+        <button type="submit" formtarget ="_blank" formaction="{% url 'syllabusPDF' %}">Make a pdf</button>
+
+    </form>
+
 
 </form>
 
