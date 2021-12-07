@@ -1,11 +1,78 @@
-body {
+
+:root {
+    --UMBC_black: #000000; /* var(--UMBC_black) */
+    --UMBC_gold: #fdb515;
+    --UMBC_darkgrey: #636466
+}
+
+#landingLeftContainer {
+    height: 100%;
+    background-color: grey;
+}
+
+.nav body{
+	min-width:700;
+	width 100%;
+	background-color:#f8f8ff;
+	text-align: center;
+	}
+
+
+.header{
+	background-image:url('https://styleguide.umbc.edu/files/2019/05/maryland-flag-background-black.jpg');
+	display: block;
+    width:100%
+}
+
+.content{
+
+}
+
+.login{
+float:right;
+
+}
+
+.active{
+	background-color:#F5CD00;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333333;
+  overflow: auto;
+}
+
+li{
+	float:left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 12px 14px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+
+--------------------
+
+.dues body {
   display: flex;
   margin-top: 50px;
   justify-content: center;
-  background-color: #636466;
+  align-items: center;
+  font-family:helvetica;
+  align-content: center
 }
 
-button {
+.dues button {
   width: 50px;
   cursor: pointer;
   box-shadow: 0px 0px 4px #fdb515;
@@ -13,19 +80,21 @@ button {
   outline: none;
   padding: 5px;
   border-radius: 5px;
-  color: #fdb515;
+  color: white;
+  background-color:black;
 }
 
 #Title {
   padding: 10px;
-  color: #fdb515;
+  color: ##f8f8ff;
   font-size: 30px;
   display: flex;
   justify-content: space-between;
+  font-family:helvetica;
 }
 
 #Title button {
-  background-color:#636466;
+  background-color:black;
 }
 
 #holder {
@@ -35,7 +104,9 @@ button {
 #days {
   width: 100%;
   display: flex;
-  color: #fdb515;
+  font-family:helvetica;
+  font-size:15  px;
+  color: black;
 }
 
 #days div {
@@ -57,6 +128,7 @@ button {
   cursor: pointer;
   box-sizing: border-box;
   background-color: white;
+  font-family:helvetica;
   margin: 5px;
   box-shadow: 0px 0px 6px black;
   overflow: auto;
@@ -68,7 +140,7 @@ button {
 
 .dontShow {
   cursor: default;
-  background-color: #636466;
+  background-color: #f8f8ff;
   box-shadow: none;
 }
 
@@ -85,7 +157,7 @@ button {
 }
 
 #Add, #Exit, #Save, #Close {
-  background-color: #636466;
+  background-color: black;
 }
 
 #eventText {
@@ -103,7 +175,7 @@ button {
 }
 
 .day + #currentDay {
-  border: 4px solid #fdb515;;
+  border: 4px solid #fdb515;
 }
 
 .assignmentPrint {

@@ -1,8 +1,8 @@
-{% extends "base_generic.html" %}
 
-{% block title %}<title>Syllabus Viewer - Syllabus Tool</title>{% endblock %}
 
-{% block content %}
+<title>Syllabus Viewer - Syllabus Tool</title>
+
+
 <html>
 <head>
 </head>
@@ -19,9 +19,13 @@
 
     .indent_syllabus1 {
         margin-left: 600px;
-        word-wrap: break-word;
         width: 750px;
     }
+
+
+
+
+
 
 </style>
 
@@ -132,7 +136,7 @@
 <!-- will just make a comment with name listed for organization
 -->
 <div class="indent_syllabus">
-    Course Topics:
+    Course Work:
 </div>
 
 <!-- read each index in the list and write each thing down with a dot for ordering/appearance
@@ -161,12 +165,40 @@
         {% endfor %}
 </div>
 
+
+<div class="indent_syllabus1">
+                <h4>Course Work Visualization (100%)</h4>
+                 <div style="width: 750px; height:35px; background-color: #ddd;border: 2px solid black;">
+
+                     <div  title="{{courseWork.0}} {{grades.0}}" style="width: {{grades.0}}; background-color: #04AA6D; text-align:center;height:35px; float:left;">{{courseWork.0}}<br>{{grades.0}}</div>
+                     <div  title="{{courseWork.1}} {{grades.1}}" style="width: {{grades.1}}; background-color: #2196F3; text-align:center;height:35px; float:left;">{{courseWork.1}}<br>{{grades.1}}</div>
+                     <div  title="{{courseWork.2}} {{grades.2}}" style="width: {{grades.2}}; background-color: #f44336; text-align:center;height:35px; float:left;">{{courseWork.2}}<br>{{grades.2}}</div>
+                     <div  title="{{courseWork.3}} {{grades.3}}" style="width: {{grades.3}}; background-color: #F3F321; text-align:center;height:35px; float:left;">{{courseWork.3}}<br>{{grades.3}}</div>
+                     <div  title="{{courseWork.4}} {{grades.4}}" style="width: {{grades.4}}; background-color: #1737FE; text-align:center;height:35px; float:left;">{{courseWork.4}}<br>{{grades.4}}</div>
+                     <div  title="{{courseWork.5}} {{grades.5}}" style="width: {{grades.5}}; background-color: #FF4CEC; text-align:center;height:35px; float:left;">{{courseWork.5}}<br>{{grades.5}}</div>
+                     <div  title="{{courseWork.6}} {{grades.6}}" style="width: {{grades.6}}; background-color: #674CFF; text-align:center;height:35px; float:left;">{{courseWork.6}}<br>{{grades.6}}</div>
+                     <div  title="{{courseWork.7}} {{grades.7}}" style="width: {{grades.7}}; background-color: #FFB04C; text-align:center;height:35px; float:left;">{{courseWork.7}}<br>{{grades.7}}</div>
+                     <div  title="{{courseWork.8}} {{grades.8}}" style="width: {{grades.8}}; background-color: #4CFF98; text-align:center;height:35px; float:left;">{{courseWork.8}}<br>{{grades.8}}</div>
+                     <div  title="{{courseWork.9}} {{grades.9}}" style="width: {{grades.9}}; background-color: #FE1717; text-align:center;height:35px; float:left;">{{courseWork.9}}<br>{{grades.9}}</div>
+                     <div  title="{{courseWork.10}} {{grades.10}}" style="width: {{grades.10}}; background-color: red; text-align:center;height:35px; float:left;">{{courseWork.10}}<br>{{grades.10}}</div>
+                     <div  title="{{courseWork.11}} {{grades.11}}" style="width: {{grades.11}}; background-color: orange; text-align:center;height:35px; float:left;">{{courseWork.11}}<br>{{grades.11}}</div>
+                     <div  title="{{courseWork.12}} {{grades.12}}" style="width: {{grades.12}}; background-color: yellow; text-align:center;height:35px; float:left;">{{courseWork.12}}<br>{{grades.12}}</div>
+                     <div  title="{{courseWork.13}} {{grades.13}}" style="width: {{grades.13}}; background-color: green; text-align:center;height:35px; float:left;">{{courseWork.13}}<br>{{grades.13}}</div>
+                     <div  title="{{courseWork.14}} {{grades.14}}" style="width: {{grades.14}}; background-color: blue; text-align:center;height:35px; float:left;">{{courseWork.14}}<br>{{grades.14}}</div>
+                     <div  title="{{courseWork.15}} {{grades.15}}" style="width: {{grades.15}}; background-color: purple; text-align:center;height:35px; float:left;">{{courseWork.15}}<br>{{grades.15}}</div>
+                     <div  title="{{courseWork.16}} {{grades.16}}" style="width: {{grades.16}}; background-color: pink; text-align:center;height:35px; float:left;">{{courseWork.16}}<br>{{grades.16}}</div>
+                     <div  title="{{courseWork.17}} {{grades.17}}" style="width: {{grades.17}}; background-color: red; text-align:center;height:35px; float:left;">{{courseWork.17}}<br>{{grades.17}}</div>
+                 </div>
+        <p style="font-size: 12px;">If you can't read what is written in the bar, try hovering the text!</p>
+</div>
+
+
 </br>
 
 <!-- will just make a comment with name listed for organization
 -->
 <div class="indent_syllabus">
-    Assignments/Due dates :
+    Assignments and their Due dates :
 </div>
 
 <!-- read each index in the list and write each thing down with a dot for ordering/appearance
@@ -377,6 +409,7 @@ Please note that, if you report anonymously,  the University’s ability to resp
 </br>
 </br>
 
+
+
 </body>
 </html>
-{% endblock %}

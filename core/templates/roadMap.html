@@ -1,0 +1,81 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Roadmap- Syllabus Tool</title>{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<h1>Roadmap of Future Development</h1>
+<h4>Please feel free to use our <a href="/contactUs" style="color:#fdb515;">Contact us</a> page if you have ideas or concerns about our roadmap, and it will go directly to our devs!</h4>
+
+<center>
+
+<div style="display: inline-block;">
+
+    <div class="w3-card-4" style="width:33%; display: inline-block;">
+        <header class="w3-container w3-red">
+        <h1>High Priority</h1>
+        </header>
+
+        <div class="w3-container" style="height:200px">
+            <ol style="background-color:#f8f8ff;">
+                <li>Integrate current web apps into database systems</li>
+                <li>Proper Log in systems with ease from Google</li>
+                <li>Allow for students to find uploaded syllabi from instructors</li>
+                <li>A place for students to view all of their syllabi from courses chosen</li>
+                <li>Allow for instructors to manage their uploaded syllabi (edit/delete)</li>
+                <li>Modify the site based on if a professor or student is viewing it</li>
+            </ol>
+        </div>
+
+        <footer class="w3-container w3-red">
+         <h5>These will take precedence over other panels</h5>
+        </footer>
+    </div>
+
+    <div class="w3-card-4" style="width:33%;display: inline-block;">
+        <header class="w3-container w3-green">
+        <h1>Low Priority</h1>
+        </header>
+
+        <div class="w3-container" style="height:200px">
+            <ol style="background-color:#f8f8ff;">
+                <li>Multiple course syllabi in a single packet</li>
+                <li>Fix site format issues with calendar page</li>
+                <li>Allow for students to request a change from professors about a course</li>
+                <li>Allow professors to accept/deny changes from requests from students</li>
+                <li>Notify students of a change to a syllabi of their courses</li>
+                <li>More tools to use when creating syllabi for a course</li>
+            </ol>
+        </div>
+
+        <footer class="w3-container w3-green">
+         <h5>These will likely be pushed off unless the task is simple</h5>
+        </footer>
+    </div>
+
+    <div class="w3-card-4" style="width:33%;display: inline-block;">
+        <header class="w3-container w3-blue">
+        <h1>Future Ideas/Tasks</h1>
+        </header>
+
+        <div class="w3-container" style="height:200px">
+            <ol style="background-color:#f8f8ff;">
+                <li>Allow for the site to be used with more schools</li>
+                <li>Scan syllabi that has been uploaded and pull data from them<br>based on common themes</li>
+                <li>Add more customization from our calendars and syllabi for better<br> student QoL</li>
+                <li>More tools to make students organization clean and successful</li>
+                <li>More tools to allow professors to easily convey <br>information to their students</li>
+            </ol>
+        </div>
+
+        <footer class="w3-container w3-blue">
+         <h5>These will be looked into once happy with initial implementation</h5>
+        </footer>
+    </div>
+
+</div>
+
+
+{% endblock %}

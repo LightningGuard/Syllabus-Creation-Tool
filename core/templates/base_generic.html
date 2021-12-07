@@ -13,7 +13,7 @@
 
 <body>
 
-		<center>
+
 		<div class="header">
 			<a href="/">
 				<img src= "{% static 'media/syllabusLOGO.png' %}" class="homelogo"/>
@@ -35,10 +35,13 @@
 			<!--once instructors pages are added we can make this instructor only-->
 			<li><a href="/createSyllabus">Create a Syllabus</a></li>
 
-			<li><a href="">Add</a></li>
-			<li><a href="">Your</a></li>
+			<li><a href="/dueDates">Your Calendar</a></li>
+			<li><a href="/roadMap">Roadmap</a></li>
+			<li><a href="">More</a></li>
 			<li><a href="">Pages</a></li>
 			<li><a href="">Here</a></li>
+
+
 
 			<li style="float:right;font-family:helvetica;"><a href="/contactUs">Contact us</a></li>
 
@@ -46,13 +49,13 @@
 		<hr style="color:purple;">
 
 
-		<div class="content">
+
     		{% block content %}<!-- Overridden -->{% endblock %}
-		</div>
+
 
 
 
 			<p style="color:gray;">© 2021-20?? Syllabus Creation Tool All Rights Reserved (someday maybe).<br>made by students of UMBC </p>
-		</center>
+
 </body>
 </html>

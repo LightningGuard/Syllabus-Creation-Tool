@@ -429,6 +429,8 @@ def syllabusViewer(request):
             'course_topics': list6,
             'course_requirements': course_requirements,
             'course_work': list11,
+            'courseWork': list2,
+            'grades':list8,
             'grading': list12,
             'course_name_empty': course_name_empty,
             'course_id_empty': course_id_empty,
@@ -468,15 +470,21 @@ def syllabusViewer(request):
         return render(request, 'syllabusViewer.html')
 
 
-        message = 'This is a confirmation email letting you know you have created a new syllabus for course, ' + course_name + ':' + course_id + '. Thank you for using our service! :)'
+    message = 'This is a confirmation email letting you know you have created a new syllabus for course, ' + course_name + ':' + course_id + '. Thank you for using our service! :)'
 
-        if errorCounter > 0:
-            return render(request, 'createSyllabus.html', data)
-        else:
-            send_mail(instructor_name, message, 'SyllabusToolAcc@gmail.com' , [instructor_email], fail_silently=False)
-            return render(request, 'syllabusViewer.html', data)
+    if errorCounter > 0:
+        return render(request, 'createSyllabus.html', data)
+
+    else:
+        send_mail(instructor_name, message, 'SyllabusToolAcc@gmail.com', [instructor_email], fail_silently=False)
+        return render(request, 'syllabusViewer.html', data)
 
 
 #will just redirect back to creatSyllabus but did not really use
 def addSyllabus(request):
     return HttpResponseRedirect(reverse('createSyllabus'))
+
+
+
+def roadMap(request):
+    return render(request, 'roadMap.html')
