@@ -35,6 +35,8 @@ urlpatterns = [
     path('syllabusViewer', views.syllabusViewer, name='syllabusViewer'),
     path('addSyllabus', views.addSyllabus, name='addSyllabus'),
     path('dueDates', views.dueDates, name='dueDates'),
+    path('roadMap', views.roadMap, name='roadMap'),
+
 ]
 
 
