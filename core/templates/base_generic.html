@@ -16,15 +16,13 @@
 		<center>
 		<div class="header">
 			<a href="/">
-				<img src= "{% static 'media/syllabusLOGO.png' %}" class="homelogo"/>
+				<img  src= "{% static 'media/syllabusLOGO.png' %}" class="homelogo"/>
 			</a>
+			
 
 			<div class="login">
-				<input type="text" id="username_entry" placeholder="Username"></input>
-				<input type="text" placeholder="Password"></input>
-				<button onlick="{% url 'student' %}" id="LoginButton">Login</button>
-			</div>
-
+				<a href= "http://127.0.0.1:8000/login" id="LoginLink"> Login</a>
+			</div>	
 
 		</div>
 		<ul style="font-family:helvetica; width:100%;background-color:#333333;">

@@ -2,7 +2,6 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 
-
 # Custom User class (extensible fields)
 class User(AbstractUser):
     pass
@@ -19,13 +18,6 @@ class SyllabusList(models.Model):
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)  # User Group 'Student'
     #sets type for student, null=True so that if it is not specified no error
-    first_name = models.CharField(max_length=128, null=True)
-    last_name = models.CharField(max_length=128, null=True)
-    student_ID = models.CharField(max_length=64, null=True)
-    email = models.EmailField(max_length=128, null=True)
-    date_created = models.DateTimeField(auto_now_add=True, null=True)
-    school_list = models.ManyToManyField('SchoolList')
-    syllabus_list = models.ManyToManyField('SyllabusList')
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
@@ -33,12 +25,6 @@ class Student(models.Model):
 
 class Instructor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)  # User Group 'Instructor'
-    first_name = models.CharField(max_length=128, null=True)
-    last_name = models.CharField(max_length=128, null=True)
-    email = models.EmailField(max_length=128, null=True)    # TODO: unique=True for User emails? look into user auth
-    school_list = models.ManyToManyField('SchoolList')
-    syllabus_list = models.ManyToManyField('SyllabusList')
-    office_loc = models.TextField(max_length=256, null=True)
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
