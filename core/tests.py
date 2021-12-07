@@ -298,6 +298,7 @@ class TestSyllabusMakerPageWithNewInput(StaticLiveServerTestCase):
         time.sleep(3)
 
         self.browser.find_element_by_xpath('/html/body/center/div[2]/form/button[1]').click()
+
         time.sleep(5)
 
 #will check if the functionality of the page works. Also, the 3rd day box is grey which means that it is being hovered
