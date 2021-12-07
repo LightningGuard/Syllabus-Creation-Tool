@@ -25,6 +25,18 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
   
+
+    ################################
+    #For logging in and registering#
+    ################################ 
+
+    path('login', views.loginPage, name='registration/login'),
+    path('register', views.registerPage, name='registration/register'),
+
+    ################################
+    #End logging in and registering#
+    ################################ 
+
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/profile', views.profile, name='profile'),
     url(r'^auth/', include('social_django.urls', namespace='social')),

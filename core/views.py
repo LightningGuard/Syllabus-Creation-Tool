@@ -1,11 +1,21 @@
 
 from django.shortcuts import render, redirect
 from .models import File
-from .forms import FileForm
+from .forms import CreateUserForm, FileForm
 from django.core.files.storage import FileSystemStorage
 from django.core.mail import send_mail
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
+
+################################
+#For logging in and registering#
+################################ 
+
+
+################################
+#End logging in and registering#
+################################ 
+
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -42,9 +52,64 @@ def upload(request):
     })
 
 
+
+################################
+#For logging in and registering#
+################################ 
+
+def registerPage(request):
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        if(request.POST['UserType'] == 'Student'):
+            form = CreateUserForm(request.POST)
+            return redirect('student')
+
+            #TODO
+            # print(form.data)
+            # if form.is_valid():
+            #     form.save()
+            #     return redirect('student')
+        else:
+            form = CreateUserForm(request.POST)
+            return redirect('instructor')
+
+            #TODO
+            # print(form.data)
+            # if form.is_valid():
+            #     form.save()
+            #     return redirect('instructor')
+    context = {'form': form}
+    return render(request, "registration/register.html", context)
+
+def loginPage(request):
+    #TODO
+    # if(request.method == 'POST'):
+    #     if(request.POST['UserType'] == 'Student'):
+    #         form = CreateUserForm(request.POST)
+    #         return redirect('student')
+    #         # print(form.data)
+    #         # if form.is_valid():
+    #         #     form.save()
+    #         #     return redirect('student')
+    #     else:
+    #         form = CreateUserForm(request.POST)
+    #         return redirect('instructor')
+    #         # print(form.data)
+    #         # if form.is_valid():
+    #         #     form.save()
+    #         #     return redirect('instructor')
+    return render(request, "registration/login.html")
+
+
+
 def profile(request):
     return render(request, "registration/profile.html")
   
+################################
+#End logging in and registering#
+################################ 
+
 
 def contactUs(request):
     if request.method == 'POST':
