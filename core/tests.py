@@ -154,7 +154,9 @@ class TestSyllabusMakerPage(StaticLiveServerTestCase):
         self.browser.find_element_by_xpath('/html/body/center/div[2]/form/dev[38]/input').send_keys('07/16,07/22,07/26,07/28')
         time.sleep(3)
 
+
         self.browser.find_element_by_xpath('/html/body/center/div[2]/form/button[1]').click()
+
 
         time.sleep(5)
 
@@ -193,7 +195,9 @@ class TestSyllabusBadInput(StaticLiveServerTestCase):
         time.sleep(3)
 
 
+
         self.browser.find_element_by_xpath('/html/body/center/div[2]/form/button[1]').click()
+
 
         time.sleep(5)
 

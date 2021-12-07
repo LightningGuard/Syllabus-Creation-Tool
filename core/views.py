@@ -431,6 +431,8 @@ def syllabusViewer(request):
             'course_topics': list6,
             'course_requirements': course_requirements,
             'course_work': list11,
+            'courseWork': list2,
+            'grades':list8,
             'grading': list12,
             'course_name_empty': course_name_empty,
             'course_id_empty': course_id_empty,
@@ -481,6 +483,7 @@ def syllabusViewer(request):
 
     if errorCounter > 0:
         return render(request, 'createSyllabus.html', data)
+
     else:
         send_mail(instructor_name, message, 'SyllabusToolAcc@gmail.com', [instructor_email], fail_silently=False)
         return render(request, 'syllabusViewer.html', data)
@@ -488,6 +491,7 @@ def syllabusViewer(request):
 #will just redirect back to creatSyllabus but did not really use
 def addSyllabus(request):
     return HttpResponseRedirect(reverse('createSyllabus'))
+
 
 def syllabusPDF(request):
 
@@ -629,4 +633,10 @@ def syllabusPDF(request):
 
     return render(request, 'syllabusPDF.html', data)
 
+
+
+
+
+def roadMap(request):
+    return render(request, 'roadMap.html')
 

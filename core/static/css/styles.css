@@ -10,12 +10,12 @@
     background-color: grey;
 }
 
-
 body{
 	min-width:700;
 	background-color:#f8f8ff;
 	text-align: center;
 	}
+
 
 .header{
 	background-image:url('https://styleguide.umbc.edu/files/2019/05/maryland-flag-background-black.jpg');
@@ -61,6 +61,8 @@ li a {
 li a:hover {
   background-color: #111111;
 }
+
+
 
 
 
