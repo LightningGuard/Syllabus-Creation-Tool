@@ -62,12 +62,26 @@ class Course(models.Model):
     course_prereqs = models.TextField(max_length=256, default='')  # TODO: Set up built-in Course Pre-req references?
     # section_id = models.ForeignKey('Section'.section_id, on_delete=models.CASCADE) # TODO: fix field references
 
+    def __str__(self):
+        return self.course_id + ' - ' + self.course_name
+
 
 class Syllabus(models.Model):
+    class Meta:
+        verbose_name_plural = 'Syllabi'
+
+    #created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+
     #### Course Info
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
-    instructor = models.ForeignKey('Instructor', on_delete=models.CASCADE, null=True)
+    #course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
+    #instructor = models.ForeignKey('Instructor', on_delete=models.CASCADE, null=True)
     #description = models.ForeignKey(Course.course_description, on_delete=models.CASCADE) #TODO: Fix field references
+
+    course_name = models.CharField(max_length=128, default='')
+    course_id = models.CharField(max_length=16, default='')
+    instructor_name = models.CharField(max_length=128, default='')
+    instructor_email = models.EmailField(max_length=128, default='')
+
 
     # Teaching Assistants
     ta_blurb = models.TextField(max_length=512, default='')
@@ -110,6 +124,9 @@ class Syllabus(models.Model):
     # Language From University
     #uni_boilerplate = models.ForeignKey(School.syllabus_boilerplate, on_delete=models.CASCADE) # TODO: Fix field references
     # Language From Department
+
+    def __str(self):
+        return self.course_name
 
 
 

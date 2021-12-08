@@ -1,0 +1,13 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}
+    <title>Success - SyllabusTool</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Syllabus Creation Successful</h1>
+    <!-- TODO: Insert 'My Syllabi' list -->
+    <a href="{% url 'syllabus_create_view' %}">
+        <button>Create Another Syllabus</button>
+    </a>
+{% endblock %}
