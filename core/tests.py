@@ -439,7 +439,7 @@ class TestPDFPageLive(StaticLiveServerTestCase):
 
 class CreateSyllabusFormTests(TestCase):
     # Test form input is valid
-    def test_syllabus_create_form(self):
+    def test_syllabus_create_form_valid(self):
         form_data = {'course_name':             'Test Course Name',
                      'course_id':               'TEST 101',
                      'instructor_name':         'Testy McTesterson',
@@ -453,5 +453,30 @@ class CreateSyllabusFormTests(TestCase):
                      'grading_blurb':
                          'Assignment Breakdown - Tests: 100%, Everything Else: 0%'
                      }
+
         form = SyllabusCreateForm(data=form_data)
         self.assertTrue(form.is_valid())
+
+    def test_syllabus_create_form_invalid(self):
+        form_data = {'course_name': 'Test Course Name',
+                     'course_id': 'TEST 101',
+                     'instructor_name': 'Testy McTesterson',
+                     'instructor_email': 'testyATtestmail.com', #INVALID
+                     'ta_blurb': 'TAs for Testy: Four Ohfour, fohfour@umbc.edu',
+                     'course_materials_blurb': 'Textbook of Testing - By Testy McSeniorTester',
+                     'course_website': 'https://www.testingsite.com',
+                     'course_discussion_blurb': 'talking to me',
+                     'course_discussion_link': 'https://blackboard.umbc.edu',
+                     'office_hours': '9am - 5pm',
+                     'grading_blurb':
+                         'Assignment Breakdown - Tests: 100%, Everything Else: 0%'
+                     }
+
+        form = SyllabusCreateForm(data=form_data)
+        self.assertTrue(not form.is_valid())
+
+    def test_syllabus_create_form_missing_data(self):
+        form_data = {'course_name': 'Test Course Name'}
+
+        form = SyllabusCreateForm(data=form_data)
+        self.assertTrue(not form.is_valid())
