@@ -1,7 +1,7 @@
 
 from django.shortcuts import render, redirect
 from .models import File
-from .forms import CreateUserForm, FileForm
+from .forms import CreateUserForm, FileForm, SyllabusCreateForm
 from django.core.files.storage import FileSystemStorage
 from django.core.mail import send_mail
 from django.core.exceptions import ValidationError
@@ -699,9 +699,24 @@ def syllabusPDF(request):
     return render(request, 'syllabusPDF.html', data)
 
 
-
-
-
 def roadMap(request):
     return render(request, 'roadMap.html')
 
+
+# @login_required(login_url='login')
+def syllabus_create_view(request):
+    if request.method == 'POST':
+        form = SyllabusCreateForm(request.POST)
+        if form.is_valid():
+            #form['created_by'] = request.user # User must be logged in for this to work
+            form.save()
+            return HttpResponseRedirect(reverse('syllabus_create_success_view'))
+
+    else:
+        form = SyllabusCreateForm()
+
+    return render(request, 'syllabus-creator.html', {'form': form})
+
+
+def syllabus_create_success_view(request):
+    return render(request, 'syllabus_create_success_view.html')

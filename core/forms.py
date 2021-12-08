@@ -1,5 +1,5 @@
 from django import forms
-from .models import File
+from .models import File, Syllabus
 
 ################################
 #For logging in and registering#
@@ -37,3 +37,8 @@ class FileForm(forms.ModelForm):
     class Meta:
         model = File
         fields = ('syllabus_name', 'instructor_name', 'syllabus_file')
+
+class SyllabusCreateForm(forms.ModelForm):
+    class Meta:
+        model = Syllabus
+        exclude = ['created_by']

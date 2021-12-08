@@ -9,10 +9,6 @@ from core import views
 from django.urls import path, include
 from django.conf.urls import url
 
-
-
-
-
 urlpatterns = [
 
     path('', views.index, name='index'),
@@ -50,7 +46,9 @@ urlpatterns = [
     path('syllabusPDF', views.syllabusPDF, name='syllabusPDF'),
     path('roadMap', views.roadMap, name='roadMap'),
 
-
+    # SyllabusCreateForm
+    path('syllabus-creator', views.syllabus_create_view, name='syllabus_create_view'),
+    path('syllabus-create-success', views.syllabus_create_success_view, name='syllabus_create_success_view'),
 ]
 
 

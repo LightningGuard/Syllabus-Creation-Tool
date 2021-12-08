@@ -1,0 +1,14 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}
+    <title>Create a Syllabus - SyllabusTool</title>
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="OK">
+    </form>
+{% endblock %}
+
