@@ -150,8 +150,8 @@ USE_TZ = True
 # import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-import django_heroku
-django_heroku.settings(locals())
+#import django_heroku
+#django_heroku.settings(locals())
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

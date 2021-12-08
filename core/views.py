@@ -480,3 +480,10 @@ def syllabusViewer(request):
 #will just redirect back to creatSyllabus but did not really use
 def addSyllabus(request):
     return HttpResponseRedirect(reverse('createSyllabus'))
+
+def requestChange(request):
+    #if request.method == "POST":
+     #   instructor = request.POST["instructor"]
+    #else:
+     #   return render(request, 'search_result.html')
+    return render(request, 'request_change.html')
