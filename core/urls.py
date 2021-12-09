@@ -9,10 +9,6 @@ from core import views
 from django.urls import path, include
 from django.conf.urls import url
 
-
-
-
-
 urlpatterns = [
 
     path('', views.index, name='index'),
@@ -25,6 +21,18 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
   
+
+    ################################
+    #For logging in and registering#
+    ################################ 
+
+    path('login', views.loginPage, name='registration/login'),
+    path('register', views.registerPage, name='registration/register'),
+
+    ################################
+    #End logging in and registering#
+    ################################ 
+
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/profile', views.profile, name='profile'),
     url(r'^auth/', include('social_django.urls', namespace='social')),
@@ -35,6 +43,12 @@ urlpatterns = [
     path('syllabusViewer', views.syllabusViewer, name='syllabusViewer'),
     path('addSyllabus', views.addSyllabus, name='addSyllabus'),
     path('dueDates', views.dueDates, name='dueDates'),
+    path('syllabusPDF', views.syllabusPDF, name='syllabusPDF'),
+    path('roadMap', views.roadMap, name='roadMap'),
+
+    # SyllabusCreateForm
+    path('syllabus-creator', views.syllabus_create_view, name='syllabus_create_view'),
+    path('syllabus-create-success', views.syllabus_create_success_view, name='syllabus_create_success_view'),
 ]
 
 

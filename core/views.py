@@ -1,11 +1,21 @@
 
 from django.shortcuts import render, redirect
 from .models import File
-from .forms import FileForm
+from .forms import CreateUserForm, FileForm, SyllabusCreateForm
 from django.core.files.storage import FileSystemStorage
 from django.core.mail import send_mail
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
+
+################################
+#For logging in and registering#
+################################ 
+
+
+################################
+#End logging in and registering#
+################################ 
+
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -42,9 +52,64 @@ def upload(request):
     })
 
 
+
+################################
+#For logging in and registering#
+################################ 
+
+def registerPage(request):
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        if(request.POST['UserType'] == 'Student'):
+            form = CreateUserForm(request.POST)
+            return redirect('student')
+
+            #TODO
+            # print(form.data)
+            # if form.is_valid():
+            #     form.save()
+            #     return redirect('student')
+        else:
+            form = CreateUserForm(request.POST)
+            return redirect('instructor')
+
+            #TODO
+            # print(form.data)
+            # if form.is_valid():
+            #     form.save()
+            #     return redirect('instructor')
+    context = {'form': form}
+    return render(request, "registration/register.html", context)
+
+def loginPage(request):
+    #TODO
+    # if(request.method == 'POST'):
+    #     if(request.POST['UserType'] == 'Student'):
+    #         form = CreateUserForm(request.POST)
+    #         return redirect('student')
+    #         # print(form.data)
+    #         # if form.is_valid():
+    #         #     form.save()
+    #         #     return redirect('student')
+    #     else:
+    #         form = CreateUserForm(request.POST)
+    #         return redirect('instructor')
+    #         # print(form.data)
+    #         # if form.is_valid():
+    #         #     form.save()
+    #         #     return redirect('instructor')
+    return render(request, "registration/login.html")
+
+
+
 def profile(request):
     return render(request, "registration/profile.html")
   
+################################
+#End logging in and registering#
+################################ 
+
 
 def contactUs(request):
     if request.method == 'POST':
@@ -110,9 +175,11 @@ def contactUs(request):
     return render(request, 'contactUs.html')
   
 def createSyllabus(request):
+
     return render(request, 'createSyllabus.html')
 
 def dueDates(request):
+
     return render(request, 'dueDates.html')
 
 def syllabusViewer(request):
@@ -429,6 +496,8 @@ def syllabusViewer(request):
             'course_topics': list6,
             'course_requirements': course_requirements,
             'course_work': list11,
+            'courseWork': list2,
+            'grades':list8,
             'grading': list12,
             'course_name_empty': course_name_empty,
             'course_id_empty': course_id_empty,
@@ -462,21 +531,192 @@ def syllabusViewer(request):
             'work_more': work_more,
             'Pregnant_and_Parenting_Students': Pregnant_and_Parenting_Students,
             'Religious_Observances_Accommodations': Religious_Observances_Accommodations,
-            'Hate_Bias_Discrimination_and_Harassment': Hate_Bias_Discrimination_and_Harassment
+            'Hate_Bias_Discrimination_and_Harassment': Hate_Bias_Discrimination_and_Harassment,
+            'ta_names2': ta_names,
+            'ta_emails2': ta_emails,
+            'course_topics2': course_topics,
+            'grading_type': grading_type,
+            'grading_value': grading_value,
+            'work': work,
+            'assignment_dates': assignment_dates,
         }
     else:
-        return render(request, 'syllabusViewer.html')
+        return render(request, 'createSyllabus.html')
 
 
-        message = 'This is a confirmation email letting you know you have created a new syllabus for course, ' + course_name + ':' + course_id + '. Thank you for using our service! :)'
+    message = 'This is a confirmation email letting you know you have created a new syllabus for course, ' + course_name + ':' + course_id + '. Thank you for using our service! :)'
 
-        if errorCounter > 0:
-            return render(request, 'createSyllabus.html', data)
-        else:
-            send_mail(instructor_name, message, 'SyllabusToolAcc@gmail.com' , [instructor_email], fail_silently=False)
-            return render(request, 'syllabusViewer.html', data)
+    if errorCounter > 0:
+        return render(request, 'createSyllabus.html', data)
 
+    else:
+        send_mail(instructor_name, message, 'SyllabusToolAcc@gmail.com', [instructor_email], fail_silently=False)
+        return render(request, 'syllabusViewer.html', data)
 
 #will just redirect back to creatSyllabus but did not really use
 def addSyllabus(request):
     return HttpResponseRedirect(reverse('createSyllabus'))
+
+
+def syllabusPDF(request):
+
+    if request.method == 'POST':
+        course_name = request.POST.get('course_name', ",")
+        course_id = request.POST.get('course_id', ",")
+        instructor_name = request.POST.get('prof_name', ",")
+        instructor_email = request.POST.get('prof_email', ",")
+        instructor_office = request.POST.get('prof_office', ",")
+        instructor_days = request.POST.get('office_day', ",")
+        instructor_hours = request.POST.get('office_hours', ",")
+        ta_names = request.POST.get('ta_names', ",")
+        ta_emails = request.POST.get('ta_emails', ",")
+        meeting_times = request.POST.get('class_time', ",")
+        meeting_days = request.POST.get('class_days', ",")
+        course_description = request.POST.get('course_description', ",")
+        course_pre_req = request.POST.get('course_pre_req', ",")
+        course_topics = request.POST.get('course_topics', ",")
+        course_requirements = request.POST.get('materials', ",")
+        grading_type = request.POST.get('grading_type', ",")
+        grading_value = request.POST.get('grading_value', ",")
+        work = request.POST.get('work', ",")
+        assignment_dates = request.POST.get('due_dates', ",")
+        Pregnant_and_Parenting_Students = request.POST.get('Pregnant_and_Parenting_Students')
+        Religious_Observances_Accommodations = request.POST.get('Religious_Observances_Accommodations')
+        Hate_Bias_Discrimination_and_Harassment = request.POST.get('Hate_Bias_Discrimination_and_Harassment')
+
+
+        counter = 0
+        counter1 = 0
+
+        counter2 = 0
+        counter3 = 0
+
+        counter4 = 0
+        counter5 = 0
+
+        # all of these for loop are turning the data into a list so i can iterate through it through html and make it
+        # also made counters so i compare if certain parts have more input than others
+        # for example if you put more email's than ta's
+        test = [work]
+        for element in test:
+            list = element.split(',')
+
+        for e in list:
+            counter4 = counter4 + 1
+
+        test1 = [assignment_dates]
+        for element1 in test1:
+            list1 = element1.split(',')
+
+        for d in list1:
+            counter5 = counter5 + 1
+
+        test2 = [grading_type]
+        for element2 in test2:
+            list2 = element2.split(',')
+
+        for p in list2:
+            counter2 = counter2 + 1
+
+        test8 = [grading_value]
+        for element8 in test8:
+            list8 = element8.split(',')
+
+        for h in list8:
+            counter3 = counter3 + 1
+
+        test4 = [ta_emails]
+        print(ta_emails)
+        for element4 in test4:
+            list4 = element4.split(',')
+
+        for r in list4:
+            counter = counter + 1
+
+        test5 = [ta_names]
+        for element5 in test5:
+            list5 = element5.split(',')
+
+        for w in list5:
+            counter1 = counter1 + 1
+
+        test6 = [course_topics]
+        for element6 in test6:
+            list6 = element6.split(',')
+
+        # will check if the Pregnant_and_Parenting_Students box was selected
+        if not Pregnant_and_Parenting_Students:
+            Pregnant_and_Parenting_Students = False
+        else:
+            Pregnant_and_Parenting_Students = True
+
+        # will check if the Religious_Observances_Accommodations box was selected
+        if not Religious_Observances_Accommodations:
+            Religious_Observances_Accommodations = False
+        else:
+            Religious_Observances_Accommodations = True
+
+        # will check if the Pregnant_and_Parenting_Students box was selected
+        if not Hate_Bias_Discrimination_and_Harassment:
+            Hate_Bias_Discrimination_and_Harassment = False
+        else:
+            Hate_Bias_Discrimination_and_Harassment = True
+
+        # these 3 line are combining the same index from two word into another list as the same index
+        # this is for the html page so that the format looks nice for example so that
+        # list2[HomeWork,Quizzes,Exam] & list8[10%,30%,60%] will create list12['HomeWork , 10%', 'Quizzes , 30%' , 'Exams , 60%']
+        list10 = [' , '.join(z) for z in zip(list5, list4)]
+
+        list11 = [' , '.join(x) for x in zip(list, list1)]
+
+        list12 = [' , '.join(y) for y in zip(list2, list8)]
+
+        # makes a reference in the html so that i can call here to use data that i need to display info
+        data = {
+            'course_name': course_name,
+            'course_id': course_id,
+            'prof_name': instructor_name,
+            'prof_email': instructor_email,
+            'instructor_office': instructor_office,
+            'instructor_days': instructor_days,
+            'instructor_hours': instructor_hours,
+            'ta_info': list10,
+            'meeting_times': meeting_times,
+            'meeting_days': meeting_days,
+            'course_description': course_description,
+            'course_pre_req': course_pre_req,
+            'course_topics': list6,
+            'course_requirements': course_requirements,
+            'course_work': list11,
+            'grading': list12,
+            'Pregnant_and_Parenting_Students': Pregnant_and_Parenting_Students,
+            'Religious_Observances_Accommodations': Religious_Observances_Accommodations,
+            'Hate_Bias_Discrimination_and_Harassment': Hate_Bias_Discrimination_and_Harassment,
+        }
+    else:
+        return render(request, 'createSyllabus.html')
+
+    return render(request, 'syllabusPDF.html', data)
+
+
+def roadMap(request):
+    return render(request, 'roadMap.html')
+
+
+# @login_required(login_url='login')
+def syllabus_create_view(request):
+    if request.method == 'POST':
+        form = SyllabusCreateForm(request.POST)
+        if form.is_valid():
+            #form['created_by'] = request.user # User must be logged in for this to work
+            form.save()
+            return HttpResponseRedirect(reverse('syllabus_create_success_view'))
+
+    else:
+        form = SyllabusCreateForm()
+
+    return render(request, 'syllabus-creator.html', {'form': form})
+
+
+def syllabus_create_success_view(request):
+    return render(request, 'syllabus_create_success_view.html')
